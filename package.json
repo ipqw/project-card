@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "npx prettier --write .",
+    "prepare": "husky install",
+    "pre-commit": "npm run format"
   },
   "dependencies": {
     "@types/node": "18.11.11",
@@ -14,7 +17,9 @@
     "@types/react-dom": "18.0.9",
     "eslint": "8.29.0",
     "eslint-config-next": "13.0.6",
+    "husky": "^8.0.2",
     "next": "13.0.6",
+    "prettier": "^2.8.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "styled-components": "^5.0.0",
