@@ -1,11 +1,11 @@
 import Image from 'next/image';
 import styled from 'styled-components';
-import Content from '../Сontent/Content';
+import { Content } from '../Сontent/Content';
 
 export default function Footer() {
   return (
-    <Content>
-      <FooterWrapper>
+    <FooterWrapper>
+      <Content>
         <Link
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
           target="_blank"
@@ -16,8 +16,8 @@ export default function Footer() {
             <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </Description>
         </Link>
-      </FooterWrapper>
-    </Content>
+      </Content>
+    </FooterWrapper>
   );
 }
 
