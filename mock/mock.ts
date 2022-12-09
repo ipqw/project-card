@@ -175,3 +175,5 @@ export const projectsEn = [
         description: ' Lorem ipsum dolor sit amet consectetur. Senectus sed velit libero urna sem vivamus senectus penatibus turpis. Ut enim neque malesuada quam velit diam ipsum sagittis nec. Ut consequat tempus ullamcorper vivamus. Amet neque aenean gravida maecenas.',
     },
 ]
+
+export const projectCreatedAt = '19:00 25/09/2022';

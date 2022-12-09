@@ -1,3 +1,4 @@
+import { Content } from '../components/Сontent/Content';
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 import styled from 'styled-components';
@@ -6,6 +7,7 @@ export default function Home() {
   return (
     <HomeWrapper>
       <Header />
+      <Content></Content>
       <Footer />
     </HomeWrapper>
   );

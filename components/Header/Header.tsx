@@ -51,7 +51,7 @@ const HeaderWrapper = styled.header`
 
 const TempLogo = styled.div``;
 
-const ContentHeader = styled(Content)`
+const ContentHeader = styled.div`
   width: 1280px;
   display: flex;
   align-items: center;
