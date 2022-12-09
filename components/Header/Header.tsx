@@ -5,10 +5,13 @@ export default function Header() {
   return (
     <HeaderWrapper>
       <ContentHeader>
-        {/* here is logo */}
-        <TempLogo>BetterWeb</TempLogo>
+        <NavLink href="/">
+          <Logo>BetterWeb</Logo>
+        </NavLink>
         <NavMenu>
-          <NavLink active href="#">Главная</NavLink>
+          <NavLink active href="#">
+            Главная
+          </NavLink>
           <NavLink href="#">Проекты</NavLink>
           <NavLink href="#">О нас</NavLink>
           <NavLink href="#">Контакты</NavLink>
@@ -56,17 +59,22 @@ const ContentHeader = styled(Content)`
   display: flex;
   align-items: center;
   justify-content: space-between;
-`
+`;
 
 const NavMenu = styled.nav`
   min-width: 30%;
   display: flex;
   justify-content: space-between;
-`
+`;
 
-const NavLink = styled.a<{active?: boolean}>`
-  text-decoration: ${props => props.active ? 'underline' : 'none'};
-`
+const NavLink = styled.a<{ active?: boolean }>`
+  text-decoration: ${props => (props.active ? 'underline' : 'none')};
+`;
 
-const Buttons = styled.div`
-`
+const Buttons = styled.div``;
+
+const Logo = styled.p`
+  font-family: Montserrat, OpenSans, sans-serif;
+  font-weight: 700;
+  font-size: 1.75em;
+`;
