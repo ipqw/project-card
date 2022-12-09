@@ -1,4 +1,5 @@
 import { Content } from '../Сontent/Content';
+import NavLink from '../NavLink/NavLink';
 import styled from 'styled-components';
 
 export default function Header() {
@@ -8,10 +9,10 @@ export default function Header() {
         {/* here is logo */}
         <TempLogo>BetterWeb</TempLogo>
         <NavMenu>
-          <NavLink active href="#">Главная</NavLink>
-          <NavLink href="#">Проекты</NavLink>
-          <NavLink href="#">О нас</NavLink>
-          <NavLink href="#">Контакты</NavLink>
+          <NavLink active href="#" name="Главная" />
+          <NavLink href="#" name="Проекты" />
+          <NavLink href="#" name="О нас" />
+          <NavLink href="#" name="Контакты" />
         </NavMenu>
         <Buttons>
           <button>Обратная связь</button>
@@ -42,9 +43,6 @@ const HeaderWrapper = styled.header`
   left: 0;
   width: 100vw;
   height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   backdrop-filter: blur(7px);
   background-color: rgba(255, 255, 255, 0.1);
 `;
@@ -52,21 +50,16 @@ const HeaderWrapper = styled.header`
 const TempLogo = styled.div``;
 
 const ContentHeader = styled(Content)`
-  width: 1280px;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-`
+`;
 
 const NavMenu = styled.nav`
   min-width: 30%;
   display: flex;
   justify-content: space-between;
-`
+`;
 
-const NavLink = styled.a<{active?: boolean}>`
-  text-decoration: ${props => props.active ? 'underline' : 'none'};
-`
-
-const Buttons = styled.div`
-`
+const Buttons = styled.div``;
