@@ -1,14 +1,15 @@
 import { Content } from '../Сontent/Content';
 import NavLink from '../NavLink/NavLink';
+import Link from 'next/link';
 import styled from 'styled-components';
 
 export default function Header() {
   return (
     <HeaderWrapper>
       <ContentHeader>
-        <NavLink href="/">
+        <Link href='#'>
           <Logo>BetterWeb</Logo>
-        </NavLink>
+        </Link>
         <NavMenu>
           <NavLink active href="#" name="Главная" />
           <NavLink href="#" name="Проекты" />
@@ -47,8 +48,6 @@ const HeaderWrapper = styled.header`
   backdrop-filter: blur(7px);
   background-color: rgba(255, 255, 255, 0.1);
 `;
-
-const TempLogo = styled.div``;
 
 const ContentHeader = styled(Content)`
   height: 100%;
@@ -105,3 +104,9 @@ const LangsList = styled.select`
 `;
 
 const LangsListOptions = styled.option``;
+
+const Logo = styled.p`
+  font-family: Montserrat, OpenSans, sans-serif;
+  font-weight: 700;
+  font-size: 1.75em;
+`;
