@@ -6,8 +6,9 @@ export default function Header() {
   return (
     <HeaderWrapper>
       <ContentHeader>
-        {/* here is logo */}
-        <TempLogo>BetterWeb</TempLogo>
+        <NavLink href="/">
+          <Logo>BetterWeb</Logo>
+        </NavLink>
         <NavMenu>
           <NavLink active href="#" name="Главная" />
           <NavLink href="#" name="Проекты" />
