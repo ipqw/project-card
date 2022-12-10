@@ -8,7 +8,9 @@ export default function Header() {
         {/* here is logo */}
         <TempLogo>BetterWeb</TempLogo>
         <NavMenu>
-          <NavLink active href="#">Главная</NavLink>
+          <NavLink active href="#">
+            Главная
+          </NavLink>
           <NavLink href="#">Проекты</NavLink>
           <NavLink href="#">О нас</NavLink>
           <NavLink href="#">Контакты</NavLink>
@@ -55,18 +57,24 @@ const ContentHeader = styled.div`
   width: 1280px;
   display: flex;
   align-items: center;
+  padding: 0 40px;
   justify-content: space-between;
-`
+  @media (max-width: 1280px) {
+    padding: 0 20px;
+  }
+  @media (max-width: 768px) {
+    padding: 0 10px;
+  }
+`;
 
 const NavMenu = styled.nav`
   min-width: 30%;
   display: flex;
   justify-content: space-between;
-`
+`;
 
-const NavLink = styled.a<{active?: boolean}>`
-  text-decoration: ${props => props.active ? 'underline' : 'none'};
-`
+const NavLink = styled.a<{ active?: boolean }>`
+  text-decoration: ${props => (props.active ? 'underline' : 'none')};
+`;
 
-const Buttons = styled.div`
-`
+const Buttons = styled.div``;

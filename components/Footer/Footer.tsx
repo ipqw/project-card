@@ -5,24 +5,47 @@ import { Content } from '../Сontent/Content';
 export default function Footer() {
   return (
     <FooterWrapper>
-      <DateParagraph>Время создания проекта <span>{projectCreatedAt}</span></DateParagraph>
+      <FooterContent>
+        <DateParagraph>
+          Время создания проекта <span>{projectCreatedAt}</span>
+        </DateParagraph>
+      </FooterContent>
     </FooterWrapper>
   );
 }
-const DateParagraph = styled.span`
+const DateParagraph = styled.p`
   color: gray;
   span {
-    color: #fff;
+    color: #000;
   }
-`
-const FooterWrapper = styled.footer`
+  @media (prefers-color-scheme: dark) {
+    span {
+      color: #fff;
+    }
+  }
+`;
+const FooterContent = styled.div`
   display: flex;
-  flex: 1;
-  min-height:100px;
-  padding: 20px 40px;
-  width:100%;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  background-color:rgba(255, 255, 255, 0.1);
-  justify-content: flex-start;
   align-items: center;
+  justify-content: space-between;
+  width: 1280px;
+  padding: 0 40px;
+  @media (max-width: 1280px) {
+    justify-content: space-between;
+    padding: 0 20px;
+  }
+  @media (max-width: 768px) {
+    padding: 0 10px;
+  }
+`;
+const FooterWrapper = styled.footer`
+  min-height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #ebecf0;
+  @media (prefers-color-scheme: dark) {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
 `;
