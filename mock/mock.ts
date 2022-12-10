@@ -1,177 +1,216 @@
-export const developersRu = [
+export const membersRu = [
     {
-        name: 'Губарев Владислав',
         id: 1,
+        name: 'Губарев Владислав',
+        position: '',
         description: 'lorem ipsum dolor sit amet, consectetur adipiscing',
-        address: 'lorem ipsum dolor sit amet, consectetur adipiscing',
-        technologies: 'HTML, CSS, TypeScript, React'
+        github: 'https://github.com/extrapoisonouscake',
+        telegram: '@extrapoisonouscake',
+        location: ['', ''],
+        stack: ['TypeScript', 'CSS', 'HTML', 'NextJS']
     },
     {
-        name: 'Иванов Герман',
         id: 2,
+        name: 'Иванов Герман',
+        position: '',
         description: 'lorem ipsum dolor sit amet, consectetur adipiscing',
-        address: 'lorem ipsum dolor sit amet, consectetur adipiscing',
-        technologies: 'HTML, CSS, TypeScript, React'
+        github: 'https://github.com/germanivanov0719',
+        telegram: '@germanivanov0719',
+        location: ['', ''],
+        stack: ['TypeScript', 'CSS', 'HTML', 'NextJS']
     },
     {
-        name: 'Овчинников Владимир',
         id: 3,
+        name: 'Овчинников Владимир',
+        position: '',
         description: 'lorem ipsum dolor sit amet, consectetur adipiscing',
-        address: 'lorem ipsum dolor sit amet, consectetur adipiscing',
-        technologies: 'HTML, CSS, TypeScript, React'
+        github: 'https://github.com/AcruxTech',
+        telegram: '@AcruxTech',
+        location: ['', ''],
+        stack: ['TypeScript', 'CSS', 'HTML', 'NextJS']
     },
     {
-        name: 'Гладенко Илья',
         id: 4,
+        name: 'Гладенко Илья',
+        position: '',
         description: 'lorem ipsum dolor sit amet, consectetur adipiscing',
-        address: 'lorem ipsum dolor sit amet, consectetur adipiscing',
-        technologies: 'HTML, CSS, TypeScript, React'
-    }
+        github: 'https://github.com/ipqw',
+        telegram: '@hdevsk',
+        location: ['', ''],
+        stack: ['TypeScript', 'CSS', 'HTML', 'NextJS']
+    },
 ]
-export const developersEn = [
+export const membersEn = [
     {
-        name: 'Gubarev Vladislav',
         id: 5,
+        name: 'Gubarev Vladislav',
+        position: '',
         description: 'lorem ipsum dolor sit amet, consectetur adipiscing',
-        address: 'lorem ipsum dolor sit amet, consectetur adipiscing',
-        technologies: 'HTML, CSS, TypeScript, React'
+        github: 'https://github.com/extrapoisonouscake',
+        telegram: '@extrapoisonouscake',
+        location: ['', ''],
+        stack: ['TypeScript', 'CSS', 'HTML', 'NextJS']
     },
     {
-        name: 'Ivanov German',
         id: 6,
+        name: 'Ivanov German',
+        position: '',
         description: 'lorem ipsum dolor sit amet, consectetur adipiscing',
-        address: 'lorem ipsum dolor sit amet, consectetur adipiscing',
-        technologies: 'HTML, CSS, TypeScript, React'
+        github: 'https://github.com/germanivanov0719',
+        telegram: '@germanivanov0719',
+        location: ['', ''],
+        stack: ['TypeScript', 'CSS', 'HTML', 'NextJS']
     },
     {
-        name: 'Ovchinnikov Vladimir',
         id: 7,
+        name: 'Ovchinnikov Vladimir',
+        position: '',
         description: 'lorem ipsum dolor sit amet, consectetur adipiscing',
-        address: 'lorem ipsum dolor sit amet, consectetur adipiscing',
-        technologies: 'HTML, CSS, TypeScript, React'
+        github: 'https://github.com/AcruxTech',
+        telegram: '@AcruxTech',
+        location: ['', ''],
+        stack: ['TypeScript', 'CSS', 'HTML', 'NextJS']
     },
     {
-        name: 'Gladenko Ilya',
         id: 8,
+        name: 'Gladenko Ilya',
+        position: '',
         description: 'lorem ipsum dolor sit amet, consectetur adipiscing',
-        address: 'lorem ipsum dolor sit amet, consectetur adipiscing',
-        technologies: 'HTML, CSS, TypeScript, React'
-    }
+        github: 'https://github.com/ipqw',
+        telegram: '@hdevsk',
+        location: ['', ''],
+        stack: ['TypeScript', 'CSS', 'HTML', 'NextJS']
+    },
 ]
-
 export const projectsRu = [
     {   
         id: 9,
         name: 'Интернет-магазин',
-        author: 'Губарев Владислав',
-        target: 'Личный проект',
+        authors: ['1'],
+        stack: ['JS', 'CSS', 'HTML', 'ReactJS'],
         description: 'Краткое описание проекта. Lorem ipsum dolor sit amet consectetur. Senectus sed velit libero urna sem vivamus senectus penatibus turpis. Ut enim neque malesuada quam velit diam ipsum sagittis nec. Ut consequat tempus ullamcorper vivamus. Amet neque aenean gravida maecenas.',
+        createdAt: new Date(2022, 1, 1)
     },
     {
         id: 10,
         name: 'Сайт визитка',
-        author: 'Губарев Владислав',
-        target: 'Личный проект',
+        authors: ['1'],
+        stack: ['JS', 'CSS', 'HTML', 'ReactJS'],
         description: 'Краткое описание проекта. Lorem ipsum dolor sit amet consectetur. Senectus sed velit libero urna sem vivamus senectus penatibus turpis. Ut enim neque malesuada quam velit diam ipsum sagittis nec. Ut consequat tempus ullamcorper vivamus. Amet neque aenean gravida maecenas.',
+        createdAt: new Date(2022, 1, 1)
     },
     {
         id: 11,
         name: 'Интернет-магазин',
-        author: 'Иванов Герман',
-        target: 'Личный проект',
+        authors: ['2'],
+        stack: ['JS', 'CSS', 'HTML', 'ReactJS'],
         description: 'Краткое описание проекта. Lorem ipsum dolor sit amet consectetur. Senectus sed velit libero urna sem vivamus senectus penatibus turpis. Ut enim neque malesuada quam velit diam ipsum sagittis nec. Ut consequat tempus ullamcorper vivamus. Amet neque aenean gravida maecenas.',
+        createdAt: new Date(2022, 1, 1)
     },
     {
         id: 12,
         name: 'Сайт визитка',
-        author: 'Иванов Герман',
-        target: 'Личный проект',
+        authors: ['2'],
+        stack: ['JS', 'CSS', 'HTML', 'ReactJS'],
         description: 'Краткое описание проекта. Lorem ipsum dolor sit amet consectetur. Senectus sed velit libero urna sem vivamus senectus penatibus turpis. Ut enim neque malesuada quam velit diam ipsum sagittis nec. Ut consequat tempus ullamcorper vivamus. Amet neque aenean gravida maecenas.',
+        createdAt: new Date(2022, 1, 1)
     },
     {
         id: 13,
         name: 'Интернет-магазин',
-        author: 'Овчинников Владимир',
-        target: 'Личный проект',
+        authors: ['3'],
+        stack: ['JS', 'CSS', 'HTML', 'ReactJS'],
         description: 'Краткое описание проекта. Lorem ipsum dolor sit amet consectetur. Senectus sed velit libero urna sem vivamus senectus penatibus turpis. Ut enim neque malesuada quam velit diam ipsum sagittis nec. Ut consequat tempus ullamcorper vivamus. Amet neque aenean gravida maecenas.',
+        createdAt: new Date(2022, 1, 1)
     },
     {
         id: 14,
         name: 'Сайт визитка',
-        author: 'Овчинников Владимир',
-        target: 'Личный проект',
+        authors: ['3'],
+        stack: ['JS', 'CSS', 'HTML', 'ReactJS'],
         description: 'Краткое описание проекта. Lorem ipsum dolor sit amet consectetur. Senectus sed velit libero urna sem vivamus senectus penatibus turpis. Ut enim neque malesuada quam velit diam ipsum sagittis nec. Ut consequat tempus ullamcorper vivamus. Amet neque aenean gravida maecenas.',
+        createdAt: new Date(2022, 1, 1)
     },
     {
         id: 15,
         name: 'Интернет-магазин',
-        author: 'Гладенко Илья',
-        target: 'Личный проект',
+        authors: ['4'],
+        stack: ['JS', 'CSS', 'HTML', 'ReactJS'],
         description: 'Краткое описание проекта. Lorem ipsum dolor sit amet consectetur. Senectus sed velit libero urna sem vivamus senectus penatibus turpis. Ut enim neque malesuada quam velit diam ipsum sagittis nec. Ut consequat tempus ullamcorper vivamus. Amet neque aenean gravida maecenas.',
+        createdAt: new Date(2022, 1, 1)
     },
     {
         id: 16,
         name: 'Сайт визитка',
-        author: 'Гладенко Илья',
-        target: 'Личный проект',
+        authors: ['4'],
+        stack: ['JS', 'CSS', 'HTML', 'ReactJS'],
         description: 'Краткое описание проекта. Lorem ipsum dolor sit amet consectetur. Senectus sed velit libero urna sem vivamus senectus penatibus turpis. Ut enim neque malesuada quam velit diam ipsum sagittis nec. Ut consequat tempus ullamcorper vivamus. Amet neque aenean gravida maecenas.',
+        createdAt: new Date(2022, 1, 1)
     },
 ]
 export const projectsEn = [
-    {
+    {   
         id: 17,
-        name: 'Online store',
-        author: 'Gubarev Vladislav',
-        target: 'Personal project',
+        name: 'website',
+        authors: ['5'],
+        stack: ['JS', 'CSS', 'HTML', 'ReactJS'],
         description: 'Lorem ipsum dolor sit amet consectetur. Senectus sed velit libero urna sem vivamus senectus penatibus turpis. Ut enim neque malesuada quam velit diam ipsum sagittis nec. Ut consequat tempus ullamcorper vivamus. Amet neque aenean gravida maecenas.',
+        createdAt: new Date(2022, 1, 1)
     },
-    {
+    {   
         id: 18,
-        name: 'Business card',
-        author: 'Gubarev Vladislav',
-        target: 'Personal project',
+        name: 'website',
+        authors: ['5'],
+        stack: ['JS', 'CSS', 'HTML', 'ReactJS'],
         description: 'Lorem ipsum dolor sit amet consectetur. Senectus sed velit libero urna sem vivamus senectus penatibus turpis. Ut enim neque malesuada quam velit diam ipsum sagittis nec. Ut consequat tempus ullamcorper vivamus. Amet neque aenean gravida maecenas.',
+        createdAt: new Date(2022, 1, 1)
     },
-    {
+    {   
         id: 19,
-        name: 'Online store',
-        author: 'Ivanov German',
-        target: 'Personal project',
+        name: 'website',
+        authors: ['6'],
+        stack: ['JS', 'CSS', 'HTML', 'ReactJS'],
         description: 'Lorem ipsum dolor sit amet consectetur. Senectus sed velit libero urna sem vivamus senectus penatibus turpis. Ut enim neque malesuada quam velit diam ipsum sagittis nec. Ut consequat tempus ullamcorper vivamus. Amet neque aenean gravida maecenas.',
+        createdAt: new Date(2022, 1, 1)
     },
-    {
+    {   
         id: 20,
-        name: 'Business card',
-        author: 'Ivanov German',
-        target: 'Personal project',
+        name: 'website',
+        authors: ['6'],
+        stack: ['JS', 'CSS', 'HTML', 'ReactJS'],
         description: 'Lorem ipsum dolor sit amet consectetur. Senectus sed velit libero urna sem vivamus senectus penatibus turpis. Ut enim neque malesuada quam velit diam ipsum sagittis nec. Ut consequat tempus ullamcorper vivamus. Amet neque aenean gravida maecenas.',
+        createdAt: new Date(2022, 1, 1)
     },
-    {
+    {   
         id: 21,
-        name: 'Online store',
-        author: 'Ovchinnikov Vladimir',
-        target: 'Personal project',
+        name: 'website',
+        authors: ['7'],
+        stack: ['JS', 'CSS', 'HTML', 'ReactJS'],
         description: 'Lorem ipsum dolor sit amet consectetur. Senectus sed velit libero urna sem vivamus senectus penatibus turpis. Ut enim neque malesuada quam velit diam ipsum sagittis nec. Ut consequat tempus ullamcorper vivamus. Amet neque aenean gravida maecenas.',
+        createdAt: new Date(2022, 1, 1)
     },
-    {
+    {   
         id: 22,
-        name: 'Business card',
-        author: 'Ovchinnikov Vladimir',
-        target: 'Personal project',
+        name: 'website',
+        authors: ['7'],
+        stack: ['JS', 'CSS', 'HTML', 'ReactJS'],
         description: 'Lorem ipsum dolor sit amet consectetur. Senectus sed velit libero urna sem vivamus senectus penatibus turpis. Ut enim neque malesuada quam velit diam ipsum sagittis nec. Ut consequat tempus ullamcorper vivamus. Amet neque aenean gravida maecenas.',
+        createdAt: new Date(2022, 1, 1)
     },
-    {
+    {   
         id: 23,
-        name: 'Online store',
-        author: 'Gladenko Ilya',
-        target: 'Personal project',
-        description: ' Lorem ipsum dolor sit amet consectetur. Senectus sed velit libero urna sem vivamus senectus penatibus turpis. Ut enim neque malesuada quam velit diam ipsum sagittis nec. Ut consequat tempus ullamcorper vivamus. Amet neque aenean gravida maecenas.',
+        name: 'website',
+        authors: ['8'],
+        stack: ['JS', 'CSS', 'HTML', 'ReactJS'],
+        description: 'Lorem ipsum dolor sit amet consectetur. Senectus sed velit libero urna sem vivamus senectus penatibus turpis. Ut enim neque malesuada quam velit diam ipsum sagittis nec. Ut consequat tempus ullamcorper vivamus. Amet neque aenean gravida maecenas.',
+        createdAt: new Date(2022, 1, 1)
     },
-    {
+    {   
         id: 24,
-        name: 'Business card',
-        author: 'Gladenko Ilya',
-        target: 'Personal project',
-        description: ' Lorem ipsum dolor sit amet consectetur. Senectus sed velit libero urna sem vivamus senectus penatibus turpis. Ut enim neque malesuada quam velit diam ipsum sagittis nec. Ut consequat tempus ullamcorper vivamus. Amet neque aenean gravida maecenas.',
+        name: 'website',
+        authors: ['8'],
+        stack: ['JS', 'CSS', 'HTML', 'ReactJS'],
+        description: 'Lorem ipsum dolor sit amet consectetur. Senectus sed velit libero urna sem vivamus senectus penatibus turpis. Ut enim neque malesuada quam velit diam ipsum sagittis nec. Ut consequat tempus ullamcorper vivamus. Amet neque aenean gravida maecenas.',
+        createdAt: new Date(2022, 1, 1)
     },
 ]
