@@ -4,8 +4,7 @@ import { Content } from '../Сontent/Content';
 export default function Footer() {
   return (
     <FooterWrapper>
-      <Content>
-      </Content>
+      <Content></Content>
     </FooterWrapper>
   );
 }
