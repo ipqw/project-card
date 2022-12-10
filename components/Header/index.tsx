@@ -1,5 +1,5 @@
-import { Content } from '../Сontent/Content';
-import NavLink from '../NavLink/NavLink';
+import { Content } from '../Сontent';
+import NavLink from '../NavLink';
 import Link from 'next/link';
 import styled from 'styled-components';
 
