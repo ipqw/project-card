@@ -1,12 +1,12 @@
 @import url('./fonts/fonts.css');
+@import url('./classes.css');
 
 html,
 body {
   padding: 0;
   margin: 0;
-  /* font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
-  font-family: 'OpenSansRegular';
+  font-family: 'Montserrat', 'OpenSans', sans-serif;
+  font-size: 1em;
 }
 
 a {
