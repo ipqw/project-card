@@ -214,3 +214,4 @@ export const projectsEn = [
         createdAt: new Date(2022, 1, 1)
     },
 ]
+export const projectCreatedAt = '12:00, 11/09/2022'
