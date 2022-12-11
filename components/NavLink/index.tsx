@@ -8,7 +8,9 @@ const LinkStyled = styled.a<{ active?: boolean }>`
 function NavLink(props: { href: string; name: string; active?: boolean }) {
   return (
     <Link href={props.href} passHref legacyBehavior>
-      <LinkStyled active={props.active}>{props.name}</LinkStyled>
+      <LinkStyled className="mx-2" active={props.active}>
+        {props.name}
+      </LinkStyled>
     </Link>
   );
 }

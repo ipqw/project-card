@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <HeaderWrapper>
       <ContentHeader>
-        <Link href='#'>
+        <Link href="#">
           <Logo>BetterWeb</Logo>
         </Link>
         <NavMenu>
@@ -66,7 +66,6 @@ const Buttons = styled.div`
   min-width: 25%;
   display: flex;
   justify-content: space-between;
-  font-family: 'OpenSansRegular';
 `;
 
 const Button = styled.button`
@@ -108,5 +107,5 @@ const LangsListOptions = styled.option``;
 const Logo = styled.p`
   font-family: Montserrat, OpenSans, sans-serif;
   font-weight: 700;
-  font-size: 1.75em;
+  font-size: 1.75rem;
 `;
