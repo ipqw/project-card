@@ -5,18 +5,16 @@ import Footer from '../Footer';
 import Header from '../Header';
 
 type IProps = {
-    children: ReactNode;
-} 
+  children: ReactNode;
+};
 
 export default function Page(props: IProps) {
   return (
     // <Head></Head>
     <PageWrapper>
-        <Header />
-        <Container>
-          { props.children }
-        </Container>
-        <Footer />
+      <Header />
+      <Container>{props.children}</Container>
+      <Footer />
     </PageWrapper>
   );
 }
