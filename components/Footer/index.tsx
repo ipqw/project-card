@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Content } from '../Сontent/Content';
+import { Content } from '../Сontent';
 
 export default function Footer() {
   return (
