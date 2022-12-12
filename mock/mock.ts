@@ -1,4 +1,5 @@
-export const membersRu = [
+import { IMember } from 'types';
+export const membersRu: IMember[] = [
   {
     id: 1,
     name: 'Губарев Владислав',
@@ -6,7 +7,7 @@ export const membersRu = [
     description: 'lorem ipsum dolor sit amet, consectetur adipiscing',
     github: 'https://github.com/extrapoisonouscake',
     telegram: '@extrapoisonouscake',
-    location: ['', ''],
+    location: [55.7522, 37.6156],
     stack: ['TypeScript', 'CSS', 'HTML', 'NextJS']
   },
   {
@@ -16,7 +17,7 @@ export const membersRu = [
     description: 'lorem ipsum dolor sit amet, consectetur adipiscing',
     github: 'https://github.com/germanivanov0719',
     telegram: '@germanivanov0719',
-    location: ['', ''],
+    location: [55.7522, 37.6156],
     stack: ['TypeScript', 'CSS', 'HTML', 'NextJS']
   },
   {
@@ -26,7 +27,7 @@ export const membersRu = [
     description: 'lorem ipsum dolor sit amet, consectetur adipiscing',
     github: 'https://github.com/AcruxTech',
     telegram: '@AcruxTech',
-    location: ['', ''],
+    location: [55.7522, 37.6156],
     stack: ['TypeScript', 'CSS', 'HTML', 'NextJS']
   },
   {
@@ -36,7 +37,7 @@ export const membersRu = [
     description: 'lorem ipsum dolor sit amet, consectetur adipiscing',
     github: 'https://github.com/ipqw',
     telegram: '@hdevsk',
-    location: ['', ''],
+    location: [55.7522, 37.6156],
     stack: ['TypeScript', 'CSS', 'HTML', 'NextJS']
   }
 ];

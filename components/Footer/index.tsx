@@ -42,6 +42,7 @@ const FooterWrapper = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 30px;
   width: 100%;
   background-color: #ebecf0;
   @media (prefers-color-scheme: dark) {

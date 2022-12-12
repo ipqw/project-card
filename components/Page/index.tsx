@@ -12,7 +12,7 @@ export default function Page(props: IProps) {
   return (
     // <Head></Head>
     <PageWrapper>
-      <Header /> 
+      <Header />
       <Container>{props.children}</Container>
       <Footer />
     </PageWrapper>
@@ -28,6 +28,7 @@ const Container = styled.main`
   min-height: calc(100vh - 100px);
   display: flex;
   flex-direction: column;
+  gap: 30px;
   align-items: center;
   justify-content: center;
 `;
