@@ -1,14 +1,15 @@
 // import Head from 'next/head';
-import { ReactNode } from 'react';
+import { Children, ReactNode } from 'react';
 import styled from 'styled-components';
-import Footer from '../Footer';
+import { Footer } from '../Footer';
+
 import { Header } from '../Header';
 
 type IProps = {
   children: ReactNode;
 };
 
-export default function Page(props: IProps) {
+export const Page = (props: IProps) => {
   return (
     // <Head></Head>
     <PageWrapper>
