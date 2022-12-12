@@ -1,18 +1,19 @@
-import { projectCreatedAt } from '../../mock/mock';
 import styled from 'styled-components';
 import { Content } from '../Сontent';
+import { observer } from 'mobx-react';
+import { store } from '../../store';
 
-export default function Footer() {
+export const Footer = observer(() => {
   return (
-    <FooterWrapper>
+    <FooterWrapper style={{backgroundColor: store.theme ? 'rgba(255, 255, 255, 0.1)' : '#f5f5f5'}}>
       <FooterContent>
         <DateParagraph>
-          Время создания проекта <span>{projectCreatedAt}</span>
+          {store.lang ? 'Время создания проекта: ' : 'Project creation time: '}{store.createTime}
         </DateParagraph>
       </FooterContent>
     </FooterWrapper>
   );
-}
+})
 const DateParagraph = styled.p`
   color: gray;
   span {
