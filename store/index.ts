@@ -1,4 +1,5 @@
 import { makeAutoObservable } from 'mobx';
+import { members, projects, projectCreatedAt } from "../mock/mock";
 
 class Storage {
 
@@ -12,6 +13,17 @@ class Storage {
     this.lang = !this.lang;
   };
 
+
+    members = {members}
+    projects = {projects}
+    createTime = projectCreatedAt
+
+    theme = true
+    changeTheme = () => {
+        this.theme = !this.theme
+        console.log(this.theme);
+        
+    }
 }
 
 export const store = new Storage();
