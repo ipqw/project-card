@@ -4,8 +4,10 @@ import sun from '../../assets/icons/sun.svg';
 import NavLink from '../NavLink';
 import Link from 'next/link';
 import styled from 'styled-components';
+import { observer } from 'mobx-react';
+import { store } from '../../store';
 
-export default function Header() {
+export const Header = observer(() => {
   return (
     <HeaderWrapper>
       <ContentHeader>
@@ -22,12 +24,12 @@ export default function Header() {
           <ThemeButton>
             <Image src={sun} alt="" width={18} />
           </ThemeButton>
-          <Langs>RU</Langs>
+          <Langs onClick={store.changeLang}>{store.lang ? 'RU' : 'EN'}</Langs>
         </Buttons>
       </ContentHeader>
     </HeaderWrapper>
   );
-}
+})
 
 const HeaderWrapper = styled.header`
   position: fixed;
@@ -80,7 +82,7 @@ const ThemeButton = styled(Button)`
   margin-right: 1em;
 `;
 
-const Langs = styled.span``;
+const Langs = styled.p``;
 
 const Logo = styled.p`
   font-family: Montserrat, OpenSans, sans-serif;
