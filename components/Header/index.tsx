@@ -24,7 +24,7 @@ export const Header = observer(() => {
           <ThemeButton>
             <Image src={sun} alt="" width={18} />
           </ThemeButton>
-          <Langs onClick={store.changeLang}>{store.lang ? 'RU' : 'EN'}</Langs>
+          <Langs className='clickable' onClick={store.changeLang}>{store.lang ? 'RU' : 'EN'}</Langs>
         </Buttons>
       </ContentHeader>
     </HeaderWrapper>

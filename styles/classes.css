@@ -1,6 +1,10 @@
 .flex {
   display: flex;
 }
+.clickable{
+  cursor: pointer;
+  user-select: none;
+}
 
 /* Margins */
 .m-1 {
