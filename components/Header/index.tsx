@@ -22,10 +22,10 @@ export const Header = observer(() => {
           <Logo style={{color: color}}>BetterWeb</Logo>
         </Link>
         <NavMenu>
-          <NavLink active href="#" name={store.lang ? 'Главная' : 'Main'} />
-          <NavLink href="#" name={store.lang ? 'Проекты' : 'Projects'} />
-          <NavLink href="#" name={store.lang ? 'О нас' : 'About us'} />
-          <NavLink href="#" name={store.lang ? 'Контакты' : 'Contacts'} />
+          <NavLink active href="/" name={store.lang ? 'Главная' : 'Main'} />
+          <NavLink href="/projects" name={store.lang ? 'Проекты' : 'Projects'} />
+          <NavLink href="/about-us" name={store.lang ? 'О нас' : 'About us'} />
+          <NavLink href="/contacts" name={store.lang ? 'Контакты' : 'Contacts'} />
         </NavMenu>
         <Buttons>
           <ThemeButton onClick={store.changeTheme}>

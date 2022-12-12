@@ -13,12 +13,12 @@ class Storage {
     members = {members}
     projects = {projects}
     createTime = projectCreatedAt
+    
 
     theme = true
     changeTheme = () => {
         this.theme = !this.theme
         console.log(this.theme);
-        
     }
 }
 export const store = new Storage()
