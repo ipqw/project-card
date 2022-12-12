@@ -1,11 +1,20 @@
-import MemberCard from '../MemberCard';
 import styled from 'styled-components';
 import { Content } from '../Сontent';
+import { observer } from 'mobx-react';
+import { MemberCard } from '../MemberCard';
+import { store } from '../../store';
 
-export default function Members() {
+export const Members = observer(() => {
+  let color
+  if(store.theme){
+    color = 'white'
+  }
+  else{
+    color = 'black'
+  }
   return (
     <Container>
-      <SectionTitle>Наша команда</SectionTitle>
+      <SectionTitle style={{color: color}}>{store.lang ? 'Наша команда' : 'Our team'}</SectionTitle>
       <MembersWrapper>
         <MemberCard id={1}></MemberCard>
         <MemberCard id={2}></MemberCard>
@@ -14,7 +23,7 @@ export default function Members() {
       </MembersWrapper>
     </Container>
   );
-}
+})
 
 const Container = styled(Content)`
   width: 100vw;

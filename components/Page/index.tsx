@@ -1,23 +1,25 @@
 // import Head from 'next/head';
-import { ReactNode } from 'react';
+import { Children, ReactNode } from 'react';
 import styled from 'styled-components';
-import Footer from '../Footer';
+import { Footer } from '../Footer';
+import { observer } from 'mobx-react';
 import { Header } from '../Header';
+import { store } from '../../store';
 
 type IProps = {
   children: ReactNode;
 };
 
-export default function Page(props: IProps) {
+export const Page = observer((props: IProps) => {
   return (
     // <Head></Head>
-    <PageWrapper>
-      <Header />
+    <PageWrapper style={{backgroundColor: store.theme ? 'black' : 'white'}}>
+      <Header /> 
       <Container>{props.children}</Container>
       <Footer />
     </PageWrapper>
   );
-}
+})
 
 const PageWrapper = styled.div`
   min-width: 100%;
