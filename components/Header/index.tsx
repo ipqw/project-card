@@ -29,7 +29,7 @@ export const Header = observer(() => {
       </ContentHeader>
     </HeaderWrapper>
   );
-})
+});
 
 const HeaderWrapper = styled.header`
   position: fixed;

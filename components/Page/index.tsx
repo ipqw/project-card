@@ -12,7 +12,7 @@ export default function Page(props: IProps) {
   return (
     // <Head></Head>
     <PageWrapper>
-      <Header /> 
+      <Header />
       <Container>{props.children}</Container>
       <Footer />
     </PageWrapper>
