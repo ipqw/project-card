@@ -73,5 +73,5 @@ const MemberDesc = styled.span`
 const MemberStack = styled.span`
   margin-top: auto;
   margin-bottom: 0.5em;
-  color: #888; 
+  color: #888;
 `;
