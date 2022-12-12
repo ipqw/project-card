@@ -8,18 +8,21 @@ import { store } from '../../store';
 import NavLink from '../NavLink';
 
 export const Header = observer(() => {
-  let color
-  if(store.theme){
-    color = 'white'
-  }
-  else{
-    color = 'black'
+  let color;
+  if (store.theme) {
+    color = 'white';
+  } else {
+    color = 'black';
   }
   return (
-    <HeaderWrapper style={{backgroundColor: store.theme ? 'rgba(255, 255, 255, 0.1)' : '#f5f5f5'}}>
+    <HeaderWrapper
+      style={{
+        backgroundColor: store.theme ? 'rgba(255, 255, 255, 0.1)' : '#f5f5f5'
+      }}
+    >
       <ContentHeader>
         <Link href="#">
-          <Logo style={{color: color}}>BetterWeb</Logo>
+          <Logo style={{ color: color }}>BetterWeb</Logo>
         </Link>
         <NavMenu>
           <NavLink active href="#" name={store.lang ? 'Главная' : 'Main'} />
@@ -31,7 +34,13 @@ export const Header = observer(() => {
           <ThemeButton onClick={store.changeTheme}>
             <Image src={sun} alt="" width={18} />
           </ThemeButton>
-          <Langs style={{color: color}} className='clickable' onClick={store.changeLang}>{store.lang ? 'RU' : 'EN'}</Langs>
+          <Langs
+            style={{ color: color }}
+            className="clickable"
+            onClick={store.changeLang}
+          >
+            {store.lang ? 'RU' : 'EN'}
+          </Langs>
         </Buttons>
       </ContentHeader>
     </HeaderWrapper>
@@ -46,7 +55,6 @@ const HeaderWrapper = styled.header`
   height: 100px;
   backdrop-filter: blur(7px);
   background-color: rgba(255, 255, 255, 0.1);
-  
 `;
 const ContentHeader = styled(Content)`
   height: 100%;
