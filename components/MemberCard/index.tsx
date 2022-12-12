@@ -28,19 +28,26 @@ export const MemberCard = observer((props: IProps) => {
     stack += member.stack[index];
     if (index != member.stack.length - 1) stack += ', ';
   }
+  let color
+  if(store.theme){
+    color = 'white'
+  }
+  else{
+    color = 'black'
+  }
 
   return (
     <MemberCardWrapper>
       <Image src={defaultAvatar} alt="" width={300} height={225} />
-      <MemberData>
+      <MemberData style={{color: color}}>
         <MemberName>
-          <span>{member.name}</span>
+          <p>{member.name}</p>
           <Link href={member.github}>
-            <Image src={gh} alt="" width={18} />
+            <Image style={{backgroundColor: 'white', borderRadius: '100%'}} src={gh} alt="" width={18} />
           </Link>
           {/* delete symbol '@' at start of username and create link */}
           <Link href={'https://t.me/' + member.telegram.slice(1)}>
-            <Image src={tg} alt="" width={18} />
+            <Image style={{backgroundColor: 'white', borderRadius: '100%'}} src={tg} alt="" width={18} />
           </Link>
         </MemberName>
         <MemberDesc>{member.description}</MemberDesc>
@@ -70,6 +77,8 @@ const MemberName = styled.div`
   align-items: center;
   font-size: 1.2em;
   font-weight: 700;
+  padding: 0;
+  margin: 0;
 
   a {
     height: 18px;

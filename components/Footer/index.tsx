@@ -5,7 +5,7 @@ import { store } from '../../store';
 
 export const Footer = observer(() => {
   return (
-    <FooterWrapper>
+    <FooterWrapper style={{backgroundColor: store.theme ? 'rgba(255, 255, 255, 0.1)' : '#f5f5f5'}}>
       <FooterContent>
         <DateParagraph>
           {store.lang ? 'Время создания проекта: ' : 'Project creation time: '}{store.createTime}
