@@ -2,7 +2,7 @@
 import { ReactNode } from 'react';
 import styled from 'styled-components';
 import Footer from '../Footer';
-import Header from '../Header';
+import { Header } from '../Header';
 
 type IProps = {
   children: ReactNode;
@@ -12,7 +12,7 @@ export default function Page(props: IProps) {
   return (
     // <Head></Head>
     <PageWrapper>
-      <Header />
+      <Header /> 
       <Container>{props.children}</Container>
       <Footer />
     </PageWrapper>
