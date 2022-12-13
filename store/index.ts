@@ -6,21 +6,28 @@ class Storage {
     makeAutoObservable(this);
   }
 
-  lang = true;
+  _lang = true;
+  _theme = true;
 
   changeLang = () => {
-    this.lang = !this.lang;
+    this._lang = !this._lang;
   };
+
+  get Lang() {
+    return this._lang;
+  }
 
   members = { members };
   projects = { projects };
   createTime = projectCreatedAt;
 
-  theme = true;
   changeTheme = () => {
-    this.theme = !this.theme;
-    console.log(this.theme);
+    this._theme = !this._theme;
   };
+
+  get Theme() {
+    return this._theme;
+  }
 }
 
 export const store = new Storage();

@@ -7,18 +7,19 @@ export const Footer = observer(() => {
   return (
     <FooterWrapper
       style={{
-        backgroundColor: store.theme ? 'rgba(255, 255, 255, 0.1)' : '#f5f5f5'
+        backgroundColor: store.Theme ? 'rgba(255, 255, 255, 0.1)' : '#f5f5f5'
       }}
     >
       <FooterContent>
         <DateParagraph>
-          {store.lang ? 'Время создания проекта: ' : 'Project creation time: '}
+          {store.Lang ? 'Время создания проекта: ' : 'Project creation time: '}
           {store.createTime}
         </DateParagraph>
       </FooterContent>
     </FooterWrapper>
   );
 });
+
 const DateParagraph = styled.p`
   color: gray;
   span {
@@ -30,18 +31,8 @@ const DateParagraph = styled.p`
     }
   }
 `;
-const FooterContent = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+const FooterContent = styled(Content)`
   width: 1280px;
-  @media (max-width: 1280px) {
-    justify-content: space-between;
-    padding: 0 20px;
-  }
-  @media (max-width: 768px) {
-    padding: 0 10px;
-  }
 `;
 const FooterWrapper = styled.footer`
   min-height: 100px;

@@ -3,24 +3,42 @@ import { Content } from '../Сontent';
 import { observer } from 'mobx-react';
 import { MemberCard } from '../MemberCard';
 import { store } from '../../store';
+import { IMember } from '../../types';
+import { members } from '../../mock/mock';
+import { useState } from 'react';
 
 export const Members = observer(() => {
+  const [data, setData] = useState(Array<IMember>);
+
   let color;
-  if (store.theme) {
+  if (store.Theme) {
     color = 'white';
   } else {
     color = 'black';
   }
+
+  fetch('http://fakeapi.com')
+    .then(res => {
+      // pass
+    })
+    .catch(res => {
+      const mock = members;
+      if (store.Lang == true) {
+        setData(mock.ru);
+      } else {
+        setData(mock.en);
+      }
+    });
+
   return (
     <Container>
       <SectionTitle style={{ color: color }}>
-        {store.lang ? 'Наша команда' : 'Our team'}
+        {store.Lang ? 'Наша команда' : 'Our team'}
       </SectionTitle>
       <MembersWrapper>
-        <MemberCard id={1}></MemberCard>
-        <MemberCard id={2}></MemberCard>
-        <MemberCard id={3}></MemberCard>
-        <MemberCard id={4}></MemberCard>
+        {data.map((member, i) => (
+          <MemberCard member={member} />
+        ))}
       </MembersWrapper>
     </Container>
   );

@@ -4,31 +4,25 @@ import Link from 'next/link';
 import defaultAvatar from '../../assets/images/default-avatar.jpg';
 import gh from '../../assets/icons/gh.svg';
 import tg from '../../assets/icons/tg.svg';
-import { members } from '../../mock/mock';
 import { observer } from 'mobx-react';
 import { store } from '../../store';
-import { toJS } from 'mobx';
+import { IMember } from '../../types';
 
 type IProps = {
-  id: number;
+  member: IMember;
 };
 
 export const MemberCard = observer((props: IProps) => {
-  const members = toJS(store.members.members);
-
-  let member = members.ru[props.id - 1];
-  if (store.lang == true) {
-    member = members.ru[props.id - 1];
-  } else {
-    member = members.en[props.id - 1];
-  }
+  const member = props.member;
+  if (member === undefined) return <p>download...</p>;
   let stack = '';
   for (let index = 0; index < member.stack.length; index++) {
     stack += member.stack[index];
     if (index != member.stack.length - 1) stack += ', ';
   }
+
   let color;
-  if (store.theme) {
+  if (store.Theme) {
     color = 'white';
   } else {
     color = 'black';
