@@ -1,5 +1,5 @@
 import LocationCard from './LocationCard';
-import { membersRu } from '../../mock/mock';
+import { members } from '../../mock/mock';
 import { Content } from '../Сontent';
 import styled from 'styled-components';
 export default function Locations() {
@@ -7,7 +7,7 @@ export default function Locations() {
     <LocationsContent>
       <h1>Адреса</h1>
       <Container>
-        {membersRu.map(({ location, name }, i) => (
+        {members.ru.map(({ location, name }, i) => (
           <LocationCard key={i} location={location} name={name} />
         ))}
       </Container>
