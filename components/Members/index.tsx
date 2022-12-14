@@ -4,31 +4,25 @@ import { observer } from 'mobx-react';
 import { MemberCard } from '../MemberCard';
 import { store } from '../../store';
 import { IMember } from '../../types';
-import { members } from '../../mock/mock';
 import { useState } from 'react';
+
+const getMembers = (locale: string) => {};
 
 export const Members = observer(() => {
   const [data, setData] = useState(Array<IMember>);
 
-  let color;
-  if (store.Theme) {
-    color = 'white';
-  } else {
-    color = 'black';
-  }
+  let color = store.Theme ? 'white' : 'black';
 
-  fetch('http://fakeapi.com')
-    .then(res => {
-      // pass
-    })
-    .catch(res => {
-      const mock = members;
-      if (store.Lang == true) {
-        setData(mock.ru);
-      } else {
-        setData(mock.en);
-      }
-    });
+  fetch(
+    'http://130.193.43.180/betterweb/api/v1/getData?' +
+      new URLSearchParams({
+        locale: store.Lang ? 'ru' : 'en',
+        datatype: 'members'
+      })
+  )
+    .then(res => res.json())
+    .then(data => setData(data.data))
+    .catch(res => console.error());
 
   return (
     <Container>

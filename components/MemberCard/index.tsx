@@ -15,18 +15,8 @@ type IProps = {
 export const MemberCard = observer((props: IProps) => {
   const member = props.member;
   if (member === undefined) return <p>download...</p>;
-  let stack = '';
-  for (let index = 0; index < member.stack.length; index++) {
-    stack += member.stack[index];
-    if (index != member.stack.length - 1) stack += ', ';
-  }
 
-  let color;
-  if (store.Theme) {
-    color = 'white';
-  } else {
-    color = 'black';
-  }
+  let color = store.Theme ? 'white' : 'black';
 
   return (
     <MemberCardWrapper>
@@ -53,7 +43,7 @@ export const MemberCard = observer((props: IProps) => {
           </Link>
         </MemberName>
         <MemberDesc>{member.description}</MemberDesc>
-        <MemberStack>{stack}</MemberStack>
+        <MemberStack>{member.stack.join(', ')}</MemberStack>
       </MemberData>
     </MemberCardWrapper>
   );
