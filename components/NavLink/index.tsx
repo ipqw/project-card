@@ -7,21 +7,26 @@ const LinkStyled = styled.a<{ active?: boolean }>`
   text-decoration: ${props => (props.active ? 'underline' : 'none')};
 `;
 
-const NavLink = observer((props: { href: string; name: string; active?: boolean }) => {
-  let color
-  if(store.theme){
-    color = 'white'
+const NavLink = observer(
+  (props: { href: string; name: string; active?: boolean }) => {
+    let color;
+    if (store.theme) {
+      color = 'white';
+    } else {
+      color = 'black';
+    }
+    return (
+      <Link href={props.href} passHref legacyBehavior>
+        <LinkStyled
+          style={{ color: color }}
+          className="mx-2"
+          active={props.active}
+        >
+          {props.name}
+        </LinkStyled>
+      </Link>
+    );
   }
-  else{
-    color = 'black'
-  }
-  return (
-    <Link href={props.href} passHref legacyBehavior>
-      <LinkStyled style={{color: color}} className="mx-2" active={props.active}>
-        {props.name}
-      </LinkStyled>
-    </Link>
-  );
-})
+);
 
 export default NavLink;

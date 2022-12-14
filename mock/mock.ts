@@ -83,7 +83,7 @@ export const members = {
       stack: ['TypeScript', 'CSS', 'HTML', 'NextJS']
     }
   ]
-}
+};
 export const projects = {
   ru: [
     {
@@ -233,5 +233,5 @@ export const projects = {
       createdAt: new Date(2022, 1, 1)
     }
   ]
-}
+};
 export const projectCreatedAt = '12:00, 11/09/2022';
