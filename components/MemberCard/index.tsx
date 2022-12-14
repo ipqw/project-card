@@ -14,13 +14,12 @@ type IProps = {
 };
 
 export const MemberCard = observer((props: IProps) => {
-  const members = toJS(store.members.members)
-  
+  const members = toJS(store.members.members);
+
   let member = members.ru[props.id - 1];
-  if(store.lang == true){
+  if (store.lang == true) {
     member = members.ru[props.id - 1];
-  }
-  else{
+  } else {
     member = members.en[props.id - 1];
   }
   let stack = '';
@@ -28,26 +27,35 @@ export const MemberCard = observer((props: IProps) => {
     stack += member.stack[index];
     if (index != member.stack.length - 1) stack += ', ';
   }
-  let color
-  if(store.theme){
-    color = 'white'
-  }
-  else{
-    color = 'black'
+  let color;
+  if (store.theme) {
+    color = 'white';
+  } else {
+    color = 'black';
   }
 
   return (
     <MemberCardWrapper>
       <Image src={defaultAvatar} alt="" width={300} height={225} />
-      <MemberData style={{color: color}}>
+      <MemberData style={{ color: color }}>
         <MemberName>
           <p>{member.name}</p>
           <Link href={member.github}>
-            <Image style={{backgroundColor: 'white', borderRadius: '100%'}} src={gh} alt="" width={18} />
+            <Image
+              style={{ backgroundColor: 'white', borderRadius: '100%' }}
+              src={gh}
+              alt=""
+              width={18}
+            />
           </Link>
           {/* delete symbol '@' at start of username and create link */}
           <Link href={'https://t.me/' + member.telegram.slice(1)}>
-            <Image style={{backgroundColor: 'white', borderRadius: '100%'}} src={tg} alt="" width={18} />
+            <Image
+              style={{ backgroundColor: 'white', borderRadius: '100%' }}
+              src={tg}
+              alt=""
+              width={18}
+            />
           </Link>
         </MemberName>
         <MemberDesc>{member.description}</MemberDesc>
@@ -55,7 +63,7 @@ export const MemberCard = observer((props: IProps) => {
       </MemberData>
     </MemberCardWrapper>
   );
-})
+});
 
 const MemberCardWrapper = styled.div`
   height: 480px;

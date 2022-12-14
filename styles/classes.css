@@ -1,7 +1,7 @@
 .flex {
   display: flex;
 }
-.clickable{
+.clickable {
   cursor: pointer;
   user-select: none;
 }

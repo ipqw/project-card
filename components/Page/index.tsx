@@ -13,13 +13,13 @@ type IProps = {
 export const Page = observer((props: IProps) => {
   return (
     // <Head></Head>
-    <PageWrapper style={{backgroundColor: store.theme ? 'black' : 'white'}}>
-      <Header /> 
+    <PageWrapper style={{ backgroundColor: store.theme ? 'black' : 'white' }}>
+      <Header />
       <Container>{props.children}</Container>
       <Footer />
     </PageWrapper>
   );
-})
+});
 
 const PageWrapper = styled.div`
   min-width: 100%;
