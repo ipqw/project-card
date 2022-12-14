@@ -1,4 +1,6 @@
-export const members = {
+import { IMember } from "types";
+
+export const members:{ru:IMember[],en:IMember[]} = {
   ru: [
     {
       id: 1,
@@ -7,7 +9,7 @@ export const members = {
       description: 'lorem ipsum dolor sit amet, consectetur adipiscing',
       github: 'https://github.com/extrapoisonouscake',
       telegram: '@extrapoisonouscake',
-      location: ['', ''],
+      location: [55.7522, 37.6156],
       stack: ['TypeScript', 'CSS', 'HTML', 'NextJS']
     },
     {
@@ -17,7 +19,7 @@ export const members = {
       description: 'lorem ipsum dolor sit amet, consectetur adipiscing',
       github: 'https://github.com/germanivanov0719',
       telegram: '@germanivanov0719',
-      location: ['', ''],
+      location: [55.7522, 37.6156],
       stack: ['TypeScript', 'CSS', 'HTML', 'NextJS']
     },
     {
@@ -27,7 +29,7 @@ export const members = {
       description: 'lorem ipsum dolor sit amet, consectetur adipiscing',
       github: 'https://github.com/AcruxTech',
       telegram: '@AcruxTech',
-      location: ['', ''],
+      location: [55.7522, 37.6156],
       stack: ['TypeScript', 'CSS', 'HTML', 'NextJS']
     },
     {
@@ -37,7 +39,7 @@ export const members = {
       description: 'lorem ipsum dolor sit amet, consectetur adipiscing',
       github: 'https://github.com/ipqw',
       telegram: '@hdevsk',
-      location: ['', ''],
+      location: [55.7522, 37.6156],
       stack: ['TypeScript', 'CSS', 'HTML', 'NextJS']
     }
   ],
@@ -49,7 +51,7 @@ export const members = {
       description: 'lorem ipsum dolor sit amet, consectetur adipiscing',
       github: 'https://github.com/extrapoisonouscake',
       telegram: '@extrapoisonouscake',
-      location: ['', ''],
+      location: [55.7522, 37.6156],
       stack: ['TypeScript', 'CSS', 'HTML', 'NextJS']
     },
     {
@@ -59,7 +61,7 @@ export const members = {
       description: 'lorem ipsum dolor sit amet, consectetur adipiscing',
       github: 'https://github.com/germanivanov0719',
       telegram: '@germanivanov0719',
-      location: ['', ''],
+      location: [55.7522, 37.6156],
       stack: ['TypeScript', 'CSS', 'HTML', 'NextJS']
     },
     {
@@ -69,7 +71,7 @@ export const members = {
       description: 'lorem ipsum dolor sit amet, consectetur adipiscing',
       github: 'https://github.com/AcruxTech',
       telegram: '@AcruxTech',
-      location: ['', ''],
+      location: [55.7522, 37.6156],
       stack: ['TypeScript', 'CSS', 'HTML', 'NextJS']
     },
     {
@@ -79,7 +81,7 @@ export const members = {
       description: 'lorem ipsum dolor sit amet, consectetur adipiscing',
       github: 'https://github.com/ipqw',
       telegram: '@hdevsk',
-      location: ['', ''],
+      location: [55.7522, 37.6156],
       stack: ['TypeScript', 'CSS', 'HTML', 'NextJS']
     }
   ]
@@ -234,4 +236,6 @@ export const projects = {
     }
   ]
 };
+
+
 export const projectCreatedAt = '12:00, 11/09/2022';
