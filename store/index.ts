@@ -19,4 +19,4 @@ class Storage {
     this.theme = !this.theme;
   };
 }
-export const store = new Storage();
+export const store = new Storage()

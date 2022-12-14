@@ -8,12 +8,8 @@ import { store } from '../../store';
 import NavLink from '../NavLink';
 
 export const Header = observer(() => {
-  let color;
-  if (store.theme) {
-    color = 'white';
-  } else {
-    color = 'black';
-  }
+  const color = store.theme ? 'white' : 'black';
+  
   return (
     <HeaderWrapper
       style={{
@@ -23,6 +19,7 @@ export const Header = observer(() => {
       <ContentHeader>
         <Link href="#">
           <Logo style={{ color: color }}>BetterWeb</Logo>
+          <Logo style={{ color: color }}>BetterWeb</Logo>
         </Link>
         <NavMenu>
           <NavLink active href="/" name={store.lang ? 'Главная' : 'Main'} />
@@ -31,10 +28,6 @@ export const Header = observer(() => {
             name={store.lang ? 'Проекты' : 'Projects'}
           />
           <NavLink href="/about-us" name={store.lang ? 'О нас' : 'About us'} />
-          <NavLink
-            href="/contacts"
-            name={store.lang ? 'Контакты' : 'Contacts'}
-          />
         </NavMenu>
         <Buttons>
           <ThemeButton onClick={store.changeTheme}>

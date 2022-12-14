@@ -5,14 +5,9 @@ import { MemberCard } from '../MemberCard';
 import { store } from '../../store';
 
 export const Members = observer(() => {
-  let color;
-  if (store.theme) {
-    color = 'white';
-  } else {
-    color = 'black';
-  }
+  const color = store.theme ? 'white' : 'black';
   return (
-    <Container>
+    <Content>
       <SectionTitle style={{ color: color }}>
         {store.lang ? 'Наша команда' : 'Our team'}
       </SectionTitle>
@@ -22,13 +17,9 @@ export const Members = observer(() => {
         <MemberCard id={3}></MemberCard>
         <MemberCard id={4}></MemberCard>
       </MembersWrapper>
-    </Container>
+    </Content>
   );
 });
-
-const Container = styled(Content)`
-  width: 100vw;
-`;
 
 const MembersWrapper = styled.div`
   display: flex;
