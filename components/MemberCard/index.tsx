@@ -14,8 +14,7 @@ type IProps = {
 
 export const MemberCard = observer((props: IProps) => {
   const member = props.member;
-  if (member === undefined) return <p>download...</p>;
-
+  
   let color = store.Theme ? 'white' : 'black';
 
   return (

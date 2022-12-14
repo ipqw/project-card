@@ -4,25 +4,25 @@ import { observer } from 'mobx-react';
 import { MemberCard } from '../MemberCard';
 import { store } from '../../store';
 import { IMember } from '../../types';
-import { useState } from 'react';
-
-const getMembers = (locale: string) => {};
+import { useEffect, useState } from 'react';
 
 export const Members = observer(() => {
   const [data, setData] = useState(Array<IMember>);
 
-  let color = store.Theme ? 'white' : 'black';
+  useEffect(() => {
+    fetch(
+      'http://130.193.43.180/betterweb/api/v1/getData?' +
+        new URLSearchParams({
+          locale: store.Lang ? 'ru' : 'en',
+          datatype: 'members'
+        })
+    )
+      .then(res => res.json())
+      .then(data => setData(data.data))
+      .catch(res => console.error(res));
+  }, [store.Lang]);
 
-  fetch(
-    'http://130.193.43.180/betterweb/api/v1/getData?' +
-      new URLSearchParams({
-        locale: store.Lang ? 'ru' : 'en',
-        datatype: 'members'
-      })
-  )
-    .then(res => res.json())
-    .then(data => setData(data.data))
-    .catch(res => console.error());
+  let color = store.Theme ? 'white' : 'black';
 
   return (
     <Container>
@@ -30,9 +30,9 @@ export const Members = observer(() => {
         {store.Lang ? 'Наша команда' : 'Our team'}
       </SectionTitle>
       <MembersWrapper>
-        {data.map((member, i) => (
-          <MemberCard member={member} />
-        ))}
+        {
+          data.map((member, i) => (<MemberCard member={member} key={i}/>))
+        }
       </MembersWrapper>
     </Container>
   );

@@ -1,5 +1,5 @@
 import { makeAutoObservable } from 'mobx';
-import { members, projects, projectCreatedAt } from '../mock/mock';
+import { members, projects, projectCreatedAt } from '../mock/mock'
 
 class Storage {
   constructor() {
