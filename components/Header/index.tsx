@@ -51,7 +51,7 @@ const HeaderWrapper = styled.header`
   left: 0;
   width: 100vw;
   height: 100px;
-  z-index: 3;
+  z-index: 1;
   backdrop-filter: blur(7px);
   background-color: rgba(255, 255, 255, 0.1);
 `;
