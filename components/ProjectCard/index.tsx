@@ -11,11 +11,12 @@ interface IProps {
 
 export const ProjectCard = observer(({ project }: IProps) => {
   const color = store.theme ? 'white' : 'black';
+  const backColor = store.theme ? '#0d0d0d' : '#f5f5f5';
 
   return (
-    <ProjectWrapper>
+    <ProjectWrapper style={{backgroundColor: backColor}}>
       <Image src={image.src} />
-      <div>
+      <ProjectDiv>
         <ProjectDate>
           {/* {project?.createdAt.toLocaleDateString('en-US')} */}
         </ProjectDate>
@@ -27,7 +28,7 @@ export const ProjectCard = observer(({ project }: IProps) => {
           {project?.description}
         </ProjectDescription>
         <ProjectStack>{project?.stack.join(', ')}</ProjectStack>
-      </div>
+      </ProjectDiv>
     </ProjectWrapper>
   );
 });
@@ -39,10 +40,17 @@ const ProjectDate = styled.p`
   margin-top: 25px;
   margin-bottom: 19px;
 `;
+const ProjectDiv = styled.div`
+  margin: 15px;
+`
 const ProjectWrapper = styled.div`
   height: 712px;
   width: 414px;
   margin: 0;
+  
+  margin-bottom: 30px;
+  border-radius: 10px;
+  overflow: hidden;
 `;
 const ProjectName = styled.h1`
   font-size: 40px;
