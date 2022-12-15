@@ -3,59 +3,32 @@ import { observer } from 'mobx-react';
 import { store } from '../../store';
 import styled from 'styled-components';
 import image from '../../assets/images/default-image.png';
+import { IProject } from 'types';
 
 interface IProps {
-  id: number;
+  project?: IProject;
 }
 
-export const ProjectCard = observer((props: IProps) => {
-  let color;
-  if (store.theme) {
-    color = 'white';
-  } else {
-    color = 'black';
-  }
-  const projects = toJS(store.projects.projects);
-  const members = toJS(store.members.members);
-  let currentProjects = projects.ru;
-  let currentMembers = members.ru;
-  if (store.lang) {
-    currentProjects = projects.ru;
-    currentMembers = members.ru;
-  } else {
-    currentProjects = projects.en;
-    currentMembers = members.en;
-  }
-
-  const getProjectById = (id: any) => {
-    return currentProjects.find(el => el.id == id);
-  };
-
-  const getAuthorsById = (id: any) => {
-    return currentMembers.find(el => el.id == id);
-  };
-  const project = getProjectById(props.id);
-  const authors: any = [];
-  project?.authors.map(elem => {
-    authors.push(getAuthorsById(elem));
-  });
+export const ProjectCard = observer(({ project }: IProps) => {
+  const color = store.theme ? 'white' : 'black';
+  const backColor = store.theme ? '#0d0d0d' : '#f5f5f5';
 
   return (
-    <ProjectWrapper>
+    <ProjectWrapper style={{ backgroundColor: backColor }}>
       <Image src={image.src} />
-      <div>
+      <ProjectDiv>
         <ProjectDate>
-          {project?.createdAt.toLocaleDateString('en-US')}
+          {/* {project?.createdAt.toLocaleDateString('en-US')} */}
         </ProjectDate>
         <ProjectName style={{ color: color }}>{project?.name}</ProjectName>
         <ProjectAuthors style={{ color: color }}>
-          {authors.map((elem: any) => elem.name).join(', ')}
+          {/* {authors.map((elem: any) => elem.name).join(', ')} */}
         </ProjectAuthors>
         <ProjectDescription style={{ color: color }}>
           {project?.description}
         </ProjectDescription>
         <ProjectStack>{project?.stack.join(', ')}</ProjectStack>
-      </div>
+      </ProjectDiv>
     </ProjectWrapper>
   );
 });
@@ -67,10 +40,17 @@ const ProjectDate = styled.p`
   margin-top: 25px;
   margin-bottom: 19px;
 `;
+const ProjectDiv = styled.div`
+  margin: 15px;
+`;
 const ProjectWrapper = styled.div`
   height: 712px;
   width: 414px;
   margin: 0;
+
+  margin-bottom: 30px;
+  border-radius: 10px;
+  overflow: hidden;
 `;
 const ProjectName = styled.h1`
   font-size: 40px;

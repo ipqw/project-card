@@ -9,7 +9,7 @@ import NavLink from '../NavLink';
 
 export const Header = observer(() => {
   const color = store.theme ? 'white' : 'black';
-  
+
   return (
     <HeaderWrapper
       style={{

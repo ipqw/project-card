@@ -59,13 +59,6 @@ const FooterContent = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 1280px;
-  @media (max-width: 1280px) {
-    justify-content: space-between;
-    padding: 0 20px;
-  }
-  @media (max-width: 768px) {
-    padding: 0 10px;
-  }
 `;
 
 const FooterWrapper = styled.footer`

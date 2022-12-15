@@ -1,10 +1,8 @@
-import styled from 'styled-components';
+// import styled from 'styled-components';
 import { Members } from '../components/Members';
-import Locations from 'components/Locations';
+import { Locations } from 'components/Locations';
 import { Page } from 'components/Page';
 import Head from 'next/head';
-
-
 
 export default function Home() {
   return (
@@ -14,7 +12,7 @@ export default function Home() {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Members />
-      <Locations/>
+      <Locations />
     </Page>
   );
 }

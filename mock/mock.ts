@@ -1,6 +1,6 @@
-import { IMember } from "types";
+import { IMember } from 'types';
 
-export const members:{ru:IMember[],en:IMember[]} = {
+export const members: { ru: IMember[]; en: IMember[] } = {
   ru: [
     {
       id: 1,
@@ -236,6 +236,5 @@ export const projects = {
     }
   ]
 };
-
 
 export const projectCreatedAt = '12:00, 11/09/2022';
