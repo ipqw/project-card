@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Content } from '../Сontent';
+import { Content } from '../Content';
 import { store } from '../../store';
 import { observer } from 'mobx-react';
 import Image from 'next/image';

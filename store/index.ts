@@ -1,4 +1,5 @@
 import { makeAutoObservable } from 'mobx';
+import { IMember, IProject } from 'types';
 import { members, projects, projectCreatedAt } from '../mock/mock';
 
 class Storage {
@@ -11,8 +12,8 @@ class Storage {
     this.lang = !this.lang;
   };
 
-  members = [];
-  projects = [];
+  members: Array<IMember> = [];
+  projects: Array<IProject> = [];
   createTime = projectCreatedAt;
 
   setMembers = (a: any) => {

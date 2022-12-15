@@ -1,14 +1,11 @@
-import { toJS } from 'mobx';
+import { Content } from 'components/Content';
 import { observer } from 'mobx-react';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import styled from 'styled-components';
 import { store } from '../../store';
-import { IMember } from '../../types';
 import { ProjectCard } from '../ProjectCard';
 
-export const Projects = observer((): any => {
-  const [data, setData] = useState(Array<IMember>);
-
+export const Projects = observer(() => {
   useEffect(() => {
     fetch(
       'http://130.193.43.180/betterweb/api/v1/getData?' +
@@ -23,6 +20,7 @@ export const Projects = observer((): any => {
       })
       .catch(res => console.error(res));
   });
+
   useEffect(() => {
     fetch(
       'http://130.193.43.180/betterweb/api/v1/getData?' +
@@ -33,7 +31,6 @@ export const Projects = observer((): any => {
     )
       .then(res => res.json())
       .then(data => {
-        setData(data.data);
         store.setProjects(data.data);
       })
       .catch(res => console.error(res));
@@ -41,13 +38,14 @@ export const Projects = observer((): any => {
 
   return (
     <ProjectsWrapper>
-      {data.map(el => {
-        return <ProjectCard key={el.id} project={el} />;
+      {store.projects.map((project, i) => {
+        return <ProjectCard project={project} key={i} />;
       })}
     </ProjectsWrapper>
   );
 });
-const ProjectsWrapper = styled.div`
+
+const ProjectsWrapper = styled(Content)`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
