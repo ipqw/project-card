@@ -1,3 +1,4 @@
+import { Content } from 'components/Content';
 import { observer } from 'mobx-react';
 import { useEffect } from 'react';
 import styled from 'styled-components';
@@ -44,7 +45,7 @@ export const Projects = observer(() => {
   );
 });
 
-const ProjectsWrapper = styled.div`
+const ProjectsWrapper = styled(Content)`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;

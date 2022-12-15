@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Content } from '../Сontent';
+import { Content } from '../Content';
 import { observer } from 'mobx-react';
 import { store } from '../../store';
 import { ContactForm } from '../ContactForm';
