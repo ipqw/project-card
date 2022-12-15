@@ -3,8 +3,8 @@ export interface IMember {
   name: string;
   position: string;
   description: string;
-  github?: string;
-  telegram?: string;
+  github: string;
+  telegram: string;
   location: [number, number];
   stack: string[];
 }

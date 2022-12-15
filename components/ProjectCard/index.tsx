@@ -5,9 +5,9 @@ import styled from 'styled-components';
 import image from '../../assets/images/default-image.png';
 import { IProject } from 'types';
 
-interface IProps {
-  project?: IProject;
-}
+type IProps = {
+  project: IProject;
+};
 
 export const ProjectCard = observer(({ project }: IProps) => {
   const color = store.theme ? 'white' : 'black';
