@@ -5,6 +5,7 @@ class Storage {
   constructor() {
     makeAutoObservable(this);
   }
+
   lang = true;
   changeLang = () => {
     this.lang = !this.lang;
@@ -13,7 +14,7 @@ class Storage {
   members = { members };
   projects = { projects };
   createTime = projectCreatedAt;
-
+  
   theme = true;
   changeTheme = () => {
     this.theme = !this.theme;

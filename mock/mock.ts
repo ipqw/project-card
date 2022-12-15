@@ -237,5 +237,4 @@ export const projects = {
   ]
 };
 
-
 export const projectCreatedAt = '12:00, 11/09/2022';

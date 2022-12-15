@@ -8,6 +8,7 @@ import { store } from '../../store';
 import NavLink from '../NavLink';
 
 export const Header = observer(() => {
+
   const color = store.theme ? 'white' : 'black';
   
   return (
@@ -19,6 +20,7 @@ export const Header = observer(() => {
       <ContentHeader>
         <Link href="#">
           <Logo style={{ color: color }}>BetterWeb</Logo>
+
           <Logo style={{ color: color }}>BetterWeb</Logo>
         </Link>
         <NavMenu>
