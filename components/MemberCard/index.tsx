@@ -18,7 +18,7 @@ export const MemberCard = observer((props: IProps) => {
 
   return (
     <MemberCardWrapper>
-      <Image src={defaultAvatar} alt="" width={300} height={225} />
+      <Image src={defaultAvatar} alt="" width={280} height={225} />
       <MemberData style={{ color: color }}>
         <MemberName>
           <p>{member.name}</p>
@@ -50,6 +50,7 @@ export const MemberCard = observer((props: IProps) => {
 const MemberCardWrapper = styled.div`
   height: 480px;
   min-width: 280px;
+  width: 280px;
   border-radius: 10px 10px 0 0;
   overflow: hidden;
   border-bottom: solid 1px #888;

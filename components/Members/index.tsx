@@ -23,30 +23,35 @@ export const Members = observer(() => {
 
   const color = store.theme ? 'white' : 'black';
   return (
-    <Content>
+    <MembersWrapper>
       <SectionTitle style={{ color: color }}>
         {store.lang ? 'Наша команда' : 'Our team'}
       </SectionTitle>
-      <MembersWrapper>
+      <MembersList>
         {store.members.map((member, i) => (
           <MemberCard member={member} key={i} />
         ))}
-      </MembersWrapper>
-    </Content>
+      </MembersList>
+    </MembersWrapper>
   );
 });
 
-const MembersWrapper = styled.div`
+const MembersWrapper = styled(Content)`
+  @media (max-width: 1280px) {
+    max-width: 100%;
+  }
+`;
+
+const MembersList = styled.div`
   display: flex;
   justify-content: space-between;
-  max-width: 1280px;
   overflow-x: scroll;
   gap: 30px;
 
   &::-webkit-scrollbar {
     height: 5px;
     background-color: #eee;
-    border-radius: 1px;
+    border-radius: 10px;
   }
 
   &::-webkit-scrollbar-thumb {
@@ -54,7 +59,7 @@ const MembersWrapper = styled.div`
     background-color: #777;
   }
 
-  @media screen and (min-width: 1300px) {
+  @media screen and (min-width: 1280px) {
     &::-webkit-scrollbar {
       width: 0;
       height: 0;
