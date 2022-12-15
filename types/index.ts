@@ -5,7 +5,7 @@ export interface IMember {
   description: string;
   github?: string;
   telegram?: string;
-  location: [number,number];
+  location: [number, number];
   stack: string[];
 }
 

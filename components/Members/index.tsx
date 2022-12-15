@@ -13,14 +13,17 @@ export const Members = observer(() => {
     fetch(
       'http://130.193.43.180/betterweb/api/v1/getData?' +
         new URLSearchParams({
-          locale: store.Lang ? 'ru' : 'en',
+          locale: store.lang ? 'ru' : 'en',
           datatype: 'members'
         })
     )
       .then(res => res.json())
-      .then(data => setData(data.data))
+      .then(data => {
+        setData(data.data);
+        store.setMembers(data.data);
+      })
       .catch(res => console.error(res));
-  }, [store.Lang]);
+  }, [store.lang]);
 
   const color = store.theme ? 'white' : 'black';
   return (
@@ -29,9 +32,9 @@ export const Members = observer(() => {
         {store.lang ? 'Наша команда' : 'Our team'}
       </SectionTitle>
       <MembersWrapper>
-        {
-          data.map((member, i) => (<MemberCard member={member} key={i}/>))
-        }
+        {data.map((member, i) => (
+          <MemberCard member={member} key={i} />
+        ))}
       </MembersWrapper>
     </Content>
   );
@@ -44,4 +47,5 @@ const MembersWrapper = styled.div`
 
 const SectionTitle = styled.h1`
   text-align: left;
+  margin-top: 120px;
 `;

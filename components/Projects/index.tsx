@@ -1,23 +1,48 @@
 import { toJS } from 'mobx';
 import { observer } from 'mobx-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { store } from '../../store';
+import { IMember } from '../../types';
 import { ProjectCard } from '../ProjectCard';
 
 export const Projects = observer((): any => {
-  const projects = toJS(store.projects.projects);
-  let currentProjects = projects.ru;
-  if (store.lang) {
-    currentProjects = projects.ru;
-  } else {
-    currentProjects = projects.en;
-  }
+  const [data, setData] = useState(Array<IMember>);
+
+  useEffect(() => {
+    fetch(
+      'http://130.193.43.180/betterweb/api/v1/getData?' +
+        new URLSearchParams({
+          locale: store.lang ? 'ru' : 'en',
+          datatype: 'members'
+        })
+    )
+      .then(res => res.json())
+      .then(data => {
+        store.setMembers(data.data);
+      })
+      .catch(res => console.error(res));
+  });
+  useEffect(() => {
+    fetch(
+      'http://130.193.43.180/betterweb/api/v1/getData?' +
+        new URLSearchParams({
+          locale: store.lang ? 'ru' : 'en',
+          datatype: 'projects'
+        })
+    )
+      .then(res => res.json())
+      .then(data => {
+        setData(data.data);
+        store.setProjects(data.data);
+      })
+      .catch(res => console.error(res));
+  }, [store.lang]);
 
   return (
     <ProjectsWrapper>
-      {currentProjects.map(el => {
-        return <ProjectCard key={el.id} id={el.id} />;
+      {data.map(el => {
+        return <ProjectCard key={el.id} project={el} />;
       })}
     </ProjectsWrapper>
   );

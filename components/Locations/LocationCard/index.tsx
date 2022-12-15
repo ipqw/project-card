@@ -1,19 +1,23 @@
 import YandexMap from 'components/YandexMap';
+import { observer } from 'mobx-react';
+import { store } from 'store';
 import styled from 'styled-components';
 interface IProps {
   location: [number, number];
   name: string;
 }
-export default function LocationCard({ location, name }: IProps) {
+export const LocationCard = observer(({ location, name }: IProps) => {
+  const color = store.theme ? 'white' : 'black';
+  const backColor = store.theme ? '' : '#f5f5f5';
   return (
-    <Card>
+    <Card style={{ color: color, backgroundColor: backColor }}>
       <TextContent>
         <p>{name}</p>
       </TextContent>
       <YandexMap location={location} />
     </Card>
   );
-}
+});
 const Card = styled.div`
   border-radius: 10px;
   cursor: pointer;

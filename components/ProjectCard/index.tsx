@@ -3,53 +3,25 @@ import { observer } from 'mobx-react';
 import { store } from '../../store';
 import styled from 'styled-components';
 import image from '../../assets/images/default-image.png';
+import { IProject } from 'types';
 
 interface IProps {
-  id: number;
+  project?: IProject;
 }
 
-export const ProjectCard = observer((props: IProps) => {
-  let color;
-  if (store.theme) {
-    color = 'white';
-  } else {
-    color = 'black';
-  }
-  const projects = toJS(store.projects.projects);
-  const members = toJS(store.members.members);
-  let currentProjects = projects.ru;
-  let currentMembers = members.ru;
-  if (store.lang) {
-    currentProjects = projects.ru;
-    currentMembers = members.ru;
-  } else {
-    currentProjects = projects.en;
-    currentMembers = members.en;
-  }
-
-  const getProjectById = (id: any) => {
-    return currentProjects.find(el => el.id == id);
-  };
-
-  const getAuthorsById = (id: any) => {
-    return currentMembers.find(el => el.id == id);
-  };
-  const project = getProjectById(props.id);
-  const authors: any = [];
-  project?.authors.map(elem => {
-    authors.push(getAuthorsById(elem));
-  });
+export const ProjectCard = observer(({ project }: IProps) => {
+  const color = store.theme ? 'white' : 'black';
 
   return (
     <ProjectWrapper>
       <Image src={image.src} />
       <div>
         <ProjectDate>
-          {project?.createdAt.toLocaleDateString('en-US')}
+          {/* {project?.createdAt.toLocaleDateString('en-US')} */}
         </ProjectDate>
         <ProjectName style={{ color: color }}>{project?.name}</ProjectName>
         <ProjectAuthors style={{ color: color }}>
-          {authors.map((elem: any) => elem.name).join(', ')}
+          {/* {authors.map((elem: any) => elem.name).join(', ')} */}
         </ProjectAuthors>
         <ProjectDescription style={{ color: color }}>
           {project?.description}

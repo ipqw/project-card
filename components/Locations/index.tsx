@@ -1,19 +1,21 @@
-import LocationCard from './LocationCard';
-import { members } from '../../mock/mock';
+import { LocationCard } from './LocationCard';
 import { Content } from '../Сontent';
 import styled from 'styled-components';
-export default function Locations() {
+import { store } from 'store';
+import { observer } from 'mobx-react';
+export const Locations = observer(() => {
+  const members = store.members;
   return (
     <LocationsContent>
-      <h1>Адреса</h1>
+      <h1>{store.lang ? 'Адреса' : 'Addresses'}</h1>
       <Container>
-        {members.ru.map(({ location, name }, i) => (
+        {members.map(({ location, name }, i) => (
           <LocationCard key={i} location={location} name={name} />
         ))}
       </Container>
     </LocationsContent>
   );
-}
+});
 const LocationsContent = styled(Content)`
   width: 100%;
 `;
