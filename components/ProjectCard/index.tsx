@@ -14,7 +14,7 @@ export const ProjectCard = observer(({ project }: IProps) => {
   const backColor = store.theme ? '#0d0d0d' : '#f5f5f5';
 
   return (
-    <ProjectWrapper style={{backgroundColor: backColor}}>
+    <ProjectWrapper style={{ backgroundColor: backColor }}>
       <Image src={image.src} />
       <ProjectDiv>
         <ProjectDate>
@@ -42,12 +42,12 @@ const ProjectDate = styled.p`
 `;
 const ProjectDiv = styled.div`
   margin: 15px;
-`
+`;
 const ProjectWrapper = styled.div`
   height: 712px;
   width: 414px;
   margin: 0;
-  
+
   margin-bottom: 30px;
   border-radius: 10px;
   overflow: hidden;
