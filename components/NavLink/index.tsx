@@ -10,7 +10,7 @@ const LinkStyled = styled.a<{ active?: boolean }>`
 const NavLink = observer(
   (props: { href: string; name: string; active?: boolean }) => {
     let color;
-    if (store.Theme) {
+    if (store.theme) {
       color = 'white';
     } else {
       color = 'black';

@@ -22,25 +22,20 @@ export const Members = observer(() => {
       .catch(res => console.error(res));
   }, [store.Lang]);
 
-  let color = store.Theme ? 'white' : 'black';
-
+  const color = store.theme ? 'white' : 'black';
   return (
-    <Container>
+    <Content>
       <SectionTitle style={{ color: color }}>
-        {store.Lang ? 'Наша команда' : 'Our team'}
+        {store.lang ? 'Наша команда' : 'Our team'}
       </SectionTitle>
       <MembersWrapper>
         {
           data.map((member, i) => (<MemberCard member={member} key={i}/>))
         }
       </MembersWrapper>
-    </Container>
+    </Content>
   );
 });
-
-const Container = styled(Content)`
-  width: 100vw;
-`;
 
 const MembersWrapper = styled.div`
   display: flex;

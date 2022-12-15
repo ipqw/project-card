@@ -1,33 +1,23 @@
 import { makeAutoObservable } from 'mobx';
-import { members, projects, projectCreatedAt } from '../mock/mock'
+import { members, projects, projectCreatedAt } from '../mock/mock';
 
 class Storage {
   constructor() {
     makeAutoObservable(this);
   }
 
-  _lang = true;
-  _theme = true;
-
+  lang = true;
   changeLang = () => {
-    this._lang = !this._lang;
+    this.lang = !this.lang;
   };
-
-  get Lang() {
-    return this._lang;
-  }
 
   members = { members };
   projects = { projects };
   createTime = projectCreatedAt;
-
+  
+  theme = true;
   changeTheme = () => {
-    this._theme = !this._theme;
+    this.theme = !this.theme;
   };
-
-  get Theme() {
-    return this._theme;
-  }
 }
-
-export const store = new Storage();
+export const store = new Storage()

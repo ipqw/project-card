@@ -8,28 +8,28 @@ import { store } from '../../store';
 import NavLink from '../NavLink';
 
 export const Header = observer(() => {
-  let color;
-  if (store.Theme) {
-    color = 'white';
-  } else {
-    color = 'black';
-  }
 
+  const color = store.theme ? 'white' : 'black';
+  
   return (
     <HeaderWrapper
       style={{
-        backgroundColor: store.Theme ? 'rgba(255, 255, 255, 0.1)' : '#f5f5f5'
+        backgroundColor: store.theme ? 'rgba(255, 255, 255, 0.1)' : '#f5f5f5'
       }}
     >
       <ContentHeader>
         <Link href="#">
           <Logo style={{ color: color }}>BetterWeb</Logo>
+
+          <Logo style={{ color: color }}>BetterWeb</Logo>
         </Link>
         <NavMenu>
-          <NavLink active href="#" name={store.Lang ? 'Главная' : 'Main'} />
-          <NavLink href="#" name={store.Lang ? 'Проекты' : 'Projects'} />
-          <NavLink href="#" name={store.Lang ? 'О нас' : 'About us'} />
-          <NavLink href="#" name={store.Lang ? 'Контакты' : 'Contacts'} />
+          <NavLink active href="/" name={store.lang ? 'Главная' : 'Main'} />
+          <NavLink
+            href="/projects"
+            name={store.lang ? 'Проекты' : 'Projects'}
+          />
+          <NavLink href="/about-us" name={store.lang ? 'О нас' : 'About us'} />
         </NavMenu>
         <Buttons>
           <ThemeButton onClick={store.changeTheme}>
@@ -40,7 +40,7 @@ export const Header = observer(() => {
             className="clickable"
             onClick={store.changeLang}
           >
-            {store.Lang ? 'RU' : 'EN'}
+            {store.lang ? 'RU' : 'EN'}
           </Langs>
         </Buttons>
       </ContentHeader>
@@ -54,6 +54,7 @@ const HeaderWrapper = styled.header`
   left: 0;
   width: 100vw;
   height: 100px;
+  z-index:3;
   backdrop-filter: blur(7px);
   background-color: rgba(255, 255, 255, 0.1);
 `;

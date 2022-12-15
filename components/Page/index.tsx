@@ -13,7 +13,7 @@ type IProps = {
 export const Page = observer((props: IProps) => {
   return (
     // <Head></Head>
-    <PageWrapper style={{ backgroundColor: store.Theme ? 'black' : 'white' }}>
+    <PageWrapper style={{ backgroundColor: store.theme ? 'black' : 'white' }}>
       <Header />
       <Container>{props.children}</Container>
       <Footer />
@@ -30,6 +30,7 @@ const Container = styled.main`
   min-height: calc(100vh - 100px);
   display: flex;
   flex-direction: column;
+  gap: 30px;
   align-items: center;
   justify-content: center;
 `;
