@@ -19,7 +19,6 @@ export const Header = observer(() => {
       <ContentHeader>
         <Link href="#">
           <Logo style={{ color: color }}>BetterWeb</Logo>
-          <Logo style={{ color: color }}>BetterWeb</Logo>
         </Link>
         <NavMenu>
           <NavLink active href="/" name={store.lang ? 'Главная' : 'Main'} />
@@ -47,12 +46,12 @@ export const Header = observer(() => {
 });
 
 const HeaderWrapper = styled.header`
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100px;
-  z-index:3;
+  z-index: 1;
   backdrop-filter: blur(7px);
   background-color: rgba(255, 255, 255, 0.1);
 `;

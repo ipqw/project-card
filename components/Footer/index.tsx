@@ -1,10 +1,8 @@
 import styled from 'styled-components';
-import { Content } from '../Сontent';
 import { observer } from 'mobx-react';
 import { store } from '../../store';
 import { ContactForm } from '../ContactForm';
 import { useState } from 'react';
-import React from 'react';
 
 export const Footer = observer(() => {
   const [formState, setFormState] = useState(false);
