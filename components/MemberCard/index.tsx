@@ -14,8 +14,7 @@ type IProps = {
 
 export const MemberCard = observer((props: IProps) => {
   const member = props.member;
-  let color = store.Theme ? 'white' : 'black';
-
+  let color = store.theme ? 'white' : 'black';
 
   return (
     <MemberCardWrapper>

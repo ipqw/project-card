@@ -1,6 +1,6 @@
-import { IMember } from "types";
+import { IMember } from 'types';
 
-export const members:{ru:IMember[],en:IMember[]} = {
+export const members: { ru: IMember[]; en: IMember[] } = {
   ru: [
     {
       id: 1,

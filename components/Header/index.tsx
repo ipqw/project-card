@@ -8,9 +8,8 @@ import { store } from '../../store';
 import NavLink from '../NavLink';
 
 export const Header = observer(() => {
-
   const color = store.theme ? 'white' : 'black';
-  
+
   return (
     <HeaderWrapper
       style={{
@@ -19,8 +18,6 @@ export const Header = observer(() => {
     >
       <ContentHeader>
         <Link href="#">
-          <Logo style={{ color: color }}>BetterWeb</Logo>
-
           <Logo style={{ color: color }}>BetterWeb</Logo>
         </Link>
         <NavMenu>
@@ -54,7 +51,7 @@ const HeaderWrapper = styled.header`
   left: 0;
   width: 100vw;
   height: 100px;
-  z-index:3;
+  z-index: 3;
   backdrop-filter: blur(7px);
   background-color: rgba(255, 255, 255, 0.1);
 `;
