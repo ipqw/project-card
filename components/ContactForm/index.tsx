@@ -164,6 +164,7 @@ const Popup = styled(Content)`
   min-height: 100vh;
   width: 100vw;
   max-width: none;
+  z-index: 5;
   @media (min-width: 720px) {
     padding-left: 10%;
     padding-right: 10%;

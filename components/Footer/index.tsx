@@ -16,7 +16,7 @@ export const Footer = observer(() => {
           backgroundColor: store.theme ? 'rgba(255, 255, 255, 0.1)' : '#f5f5f5'
         }}
       >
-        <FooterContent>
+        <FooterContent className='px-5'>
           <DateParagraph>
             {store.lang
               ? 'Время создания проекта: '

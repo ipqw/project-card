@@ -22,7 +22,6 @@ const Card = styled.div`
   border-radius: 10px;
   cursor: pointer;
   overflow: hidden;
-  z-index: 1;
   border: 1px solid rgba(255, 255, 255, 0.2);
   flex-basis: calc(33.3% - 10px);
   @media (max-width: 1100px) {
