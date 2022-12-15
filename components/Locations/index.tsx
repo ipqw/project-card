@@ -1,8 +1,8 @@
-import { LocationCard } from './LocationCard';
-import { Content } from '../Content';
-import styled from 'styled-components';
-import { store } from 'store';
 import { observer } from 'mobx-react';
+import { store } from 'store';
+import styled from 'styled-components';
+import { Content } from '../Content';
+import { LocationCard } from './LocationCard';
 
 export const Locations = observer(() => {
   const members = store.members;
@@ -19,9 +19,11 @@ export const Locations = observer(() => {
     </LocationsContent>
   );
 });
+
 const LocationsContent = styled(Content)`
   width: 100%;
 `;
+
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap;

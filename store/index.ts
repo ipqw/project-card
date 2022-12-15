@@ -1,6 +1,6 @@
 import { makeAutoObservable } from 'mobx';
 import { IMember, IProject } from 'types';
-import { members, projects, projectCreatedAt } from '../mock/mock';
+import { projectCreatedAt } from '../mock/mock';
 
 class Storage {
   constructor() {
@@ -19,6 +19,7 @@ class Storage {
   setMembers = (a: any) => {
     this.members = a;
   };
+
   setProjects = (a: any) => {
     this.projects = a;
   };
@@ -28,4 +29,5 @@ class Storage {
     this.theme = !this.theme;
   };
 }
+
 export const store = new Storage();

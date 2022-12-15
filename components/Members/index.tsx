@@ -1,9 +1,9 @@
-import styled from 'styled-components';
-import { Content } from '../Content';
 import { observer } from 'mobx-react';
-import { MemberCard } from '../MemberCard';
-import { store } from '../../store';
 import { useEffect } from 'react';
+import styled from 'styled-components';
+import { store } from '../../store';
+import { Content } from '../Content';
+import { MemberCard } from '../MemberCard';
 
 export const Members = observer(() => {
   useEffect(() => {
@@ -19,7 +19,7 @@ export const Members = observer(() => {
         store.setMembers(data.data);
       })
       .catch(res => console.error(res));
-  }, [store.lang]);
+  });
 
   const color = store.theme ? 'white' : 'black';
   return (

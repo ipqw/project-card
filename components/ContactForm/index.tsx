@@ -1,10 +1,10 @@
-import styled from 'styled-components';
-import { Content } from '../Content';
-import { store } from '../../store';
 import { observer } from 'mobx-react';
 import Image from 'next/image';
-import closeIcon from '../../assets/icons/close.svg';
 import { FormEvent, useState } from 'react';
+import styled from 'styled-components';
+import closeIcon from '../../assets/icons/close.svg';
+import { store } from '../../store';
+import { Content } from '../Content';
 
 export const ContactForm = observer(({ close }: { close: () => void }) => {
   function submitForm(event: FormEvent<HTMLFormElement>) {

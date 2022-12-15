@@ -1,10 +1,10 @@
-import styled from 'styled-components';
+import { observer } from 'mobx-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import defaultAvatar from '../../assets/images/default-avatar.jpg';
+import styled from 'styled-components';
 import gh from '../../assets/icons/gh.svg';
 import tg from '../../assets/icons/tg.svg';
-import { observer } from 'mobx-react';
+import defaultAvatar from '../../assets/images/default-avatar.jpg';
 import { store } from '../../store';
 import { IMember } from '../../types';
 
@@ -18,7 +18,7 @@ export const MemberCard = observer((props: IProps) => {
 
   return (
     <MemberCardWrapper>
-      <Image src={defaultAvatar} alt="" width={280} height={225} />
+      <Image src={defaultAvatar} priority alt="" width={280} height={225} />
       <MemberData style={{ color: color }}>
         <MemberName>
           <p>{member.name}</p>

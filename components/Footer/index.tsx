@@ -1,10 +1,8 @@
-import styled from 'styled-components';
-import { Content } from '../Content';
 import { observer } from 'mobx-react';
+import { useState } from 'react';
+import styled from 'styled-components';
 import { store } from '../../store';
 import { ContactForm } from '../ContactForm';
-import { useState } from 'react';
-import React from 'react';
 
 export const Footer = observer(() => {
   const [formState, setFormState] = useState(false);
@@ -16,7 +14,7 @@ export const Footer = observer(() => {
           backgroundColor: store.theme ? 'rgba(255, 255, 255, 0.1)' : '#f5f5f5'
         }}
       >
-        <FooterContent className='px-5'>
+        <FooterContent className="px-5">
           <DateParagraph>
             {store.lang
               ? 'Время создания проекта: '

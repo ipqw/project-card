@@ -34,7 +34,7 @@ export const Projects = observer(() => {
         store.setProjects(data.data);
       })
       .catch(res => console.error(res));
-  }, [store.lang]);
+  });
 
   return (
     <ProjectsWrapper>

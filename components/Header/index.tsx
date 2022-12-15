@@ -1,10 +1,10 @@
-import { Content } from '../Content';
+import { observer } from 'mobx-react';
 import Image from 'next/image';
-import sun from '../../assets/icons/sun.svg';
 import Link from 'next/link';
 import styled from 'styled-components';
-import { observer } from 'mobx-react';
+import sun from '../../assets/icons/sun.svg';
 import { store } from '../../store';
+import { Content } from '../Content';
 import NavLink from '../NavLink';
 
 export const Header = observer(() => {
@@ -53,9 +53,11 @@ const HeaderWrapper = styled.header`
   left: 0;
   width: 100vw;
   height: 100px;
+  z-index: 1;
   backdrop-filter: blur(7px);
   background-color: rgba(255, 255, 255, 0.1);
 `;
+
 const ContentHeader = styled(Content)`
   height: 100%;
   display: flex;
