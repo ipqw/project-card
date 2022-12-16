@@ -1,10 +1,12 @@
 import { observer } from 'mobx-react';
 import { useState } from 'react';
+import { useLang } from 'store/lang';
 import styled from 'styled-components';
 import { store } from '../../store';
 import { ContactForm } from '../ContactForm';
 
 export const Footer = observer(() => {
+  const lang = useLang();
   const [formState, setFormState] = useState(false);
 
   return (
@@ -16,16 +18,13 @@ export const Footer = observer(() => {
       >
         <FooterContent className="px-5">
           <DateParagraph>
-            {store.isRu
-              ? 'Время создания проекта: '
-              : 'Project creation time: '}
-            {store.createTime}
+            {lang.footerCreatedTime + store.createTime}
           </DateParagraph>
           <ContactUsButton
             type="button"
             onClick={() => setFormState(!formState)}
           >
-            {store.isRu ? 'Написать нам' : 'Contact us'}
+            {lang.footerContactUs}
           </ContactUsButton>
         </FooterContent>
       </FooterWrapper>
