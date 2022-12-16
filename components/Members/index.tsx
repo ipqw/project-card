@@ -19,7 +19,7 @@ export const Members = observer(() => {
         store.setMembers(data.data);
       })
       .catch(res => console.error(res));
-  });
+  }, [store.lang]);
 
   const color = store.theme ? 'white' : 'black';
   return (
