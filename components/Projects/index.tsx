@@ -10,7 +10,7 @@ export const Projects = observer(() => {
     fetch(
       'http://130.193.43.180/betterweb/api/v1/getData?' +
         new URLSearchParams({
-          locale: store.lang ? 'ru' : 'en',
+          locale: store.isRu ? 'ru' : 'en',
           datatype: 'members'
         })
     )
@@ -25,7 +25,7 @@ export const Projects = observer(() => {
     fetch(
       'http://130.193.43.180/betterweb/api/v1/getData?' +
         new URLSearchParams({
-          locale: store.lang ? 'ru' : 'en',
+          locale: store.isRu ? 'ru' : 'en',
           datatype: 'projects'
         })
     )
@@ -34,7 +34,7 @@ export const Projects = observer(() => {
         store.setProjects(data.data);
       })
       .catch(res => console.error(res));
-  }, [store.lang]);
+  });
 
   return (
     <ProjectsWrapper>

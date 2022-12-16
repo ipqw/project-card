@@ -1,10 +1,10 @@
+import { observer } from 'mobx-react';
 import Head from 'next/head';
 import { ReactNode } from 'react';
 import styled from 'styled-components';
-import { Footer } from '../Footer';
-import { observer } from 'mobx-react';
-import { Header } from '../Header';
 import { store } from '../../store';
+import { Footer } from '../Footer';
+import { Header } from '../Header';
 
 type IProps = {
   children: ReactNode;
@@ -12,7 +12,7 @@ type IProps = {
 
 export const Page = observer((props: IProps) => {
   return (
-    <PageWrapper style={{ backgroundColor: store.theme ? 'black' : 'white' }}>
+    <PageWrapper style={{ backgroundColor: store.isDark ? 'black' : 'white' }}>
       <Head>
         <title>BetterWeb</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />

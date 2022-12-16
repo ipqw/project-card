@@ -1,15 +1,15 @@
 import { makeAutoObservable } from 'mobx';
 import { IMember, IProject } from 'types';
-import { members, projects, projectCreatedAt } from '../mock/mock';
+import { projectCreatedAt } from '../mock/mock';
 
 class Storage {
   constructor() {
     makeAutoObservable(this);
   }
 
-  lang = true;
+  isRu = true;
   changeLang = () => {
-    this.lang = !this.lang;
+    this.isRu = !this.isRu;
   };
 
   members: Array<IMember> = [];
@@ -19,13 +19,15 @@ class Storage {
   setMembers = (a: any) => {
     this.members = a;
   };
+
   setProjects = (a: any) => {
     this.projects = a;
   };
 
-  theme = true;
+  isDark = true;
   changeTheme = () => {
-    this.theme = !this.theme;
+    this.isDark = !this.isDark;
   };
 }
+
 export const store = new Storage();

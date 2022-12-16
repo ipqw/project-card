@@ -86,6 +86,7 @@ export const members: { ru: IMember[]; en: IMember[] } = {
     }
   ]
 };
+
 export const projects = {
   ru: [
     {
