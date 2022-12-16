@@ -9,8 +9,8 @@ type IProps = {
 };
 
 export const ProjectCard = observer(({ project }: IProps) => {
-  const color = store.theme ? 'white' : 'black';
-  const backColor = store.theme ? '#0d0d0d' : '#f5f5f5';
+  const color = store.isDark ? 'white' : 'black';
+  const backColor = store.isDark ? '#0d0d0d' : '#f5f5f5';
 
   return (
     <ProjectWrapper style={{ backgroundColor: backColor }}>

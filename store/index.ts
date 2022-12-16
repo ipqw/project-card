@@ -7,9 +7,9 @@ class Storage {
     makeAutoObservable(this);
   }
 
-  lang = true;
+  isRu = true;
   changeLang = () => {
-    this.lang = !this.lang;
+    this.isRu = !this.isRu;
   };
 
   members: Array<IMember> = [];
@@ -24,9 +24,9 @@ class Storage {
     this.projects = a;
   };
 
-  theme = true;
+  isDark = true;
   changeTheme = () => {
-    this.theme = !this.theme;
+    this.isDark = !this.isDark;
   };
 }
 

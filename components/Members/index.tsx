@@ -10,7 +10,7 @@ export const Members = observer(() => {
     fetch(
       'http://130.193.43.180/betterweb/api/v1/getData?' +
         new URLSearchParams({
-          locale: store.lang ? 'ru' : 'en',
+          locale: store.isRu ? 'ru' : 'en',
           datatype: 'members'
         })
     )
@@ -19,13 +19,13 @@ export const Members = observer(() => {
         store.setMembers(data.data);
       })
       .catch(res => console.error(res));
-  }, [store.lang]);
+  }, [store.isRu]);
 
-  const color = store.theme ? 'white' : 'black';
+  const color = store.isDark ? 'white' : 'black';
   return (
     <MembersWrapper>
       <SectionTitle style={{ color: color }}>
-        {store.lang ? 'Наша команда' : 'Our team'}
+        {store.isRu ? 'Наша команда' : 'Our team'}
       </SectionTitle>
       <MembersList>
         {store.members.map((member, i) => (

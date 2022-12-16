@@ -9,8 +9,8 @@ interface IProps {
 }
 
 export const LocationCard = observer(({ location, name }: IProps) => {
-  const color = store.theme ? 'white' : 'black';
-  const backColor = store.theme ? '' : '#f5f5f5';
+  const color = store.isDark ? 'white' : 'black';
+  const backColor = store.isDark ? '' : '#f5f5f5';
   return (
     <Card style={{ color: color, backgroundColor: backColor }}>
       <TextContent>

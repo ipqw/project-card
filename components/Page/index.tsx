@@ -12,7 +12,7 @@ type IProps = {
 
 export const Page = observer((props: IProps) => {
   return (
-    <PageWrapper style={{ backgroundColor: store.theme ? 'black' : 'white' }}>
+    <PageWrapper style={{ backgroundColor: store.isDark ? 'black' : 'white' }}>
       <Head>
         <title>BetterWeb</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
