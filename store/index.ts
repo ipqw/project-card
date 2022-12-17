@@ -9,7 +9,7 @@ class Storage {
 
   lang = 'ru';
   changeLang = () => {
-    switch(this.lang) {
+    switch (this.lang) {
       case 'ru':
         this.lang = 'en';
         break;

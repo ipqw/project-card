@@ -25,16 +25,12 @@ export const ContactForm = observer(({ close }: { close: () => void }) => {
         setTimeout(close, 1000);
       })
       .catch(error => {
-        setSubmitStatus(
-          lang.popupStatusError
-        );
+        setSubmitStatus(lang.popupStatusError);
         console.error(`Could not send a message, error: ${error}`);
       });
   }
 
-  const [submitStatus, setSubmitStatus] = useState(
-    lang.popupButton
-  );
+  const [submitStatus, setSubmitStatus] = useState(lang.popupButton);
 
   const FontStyle = { color: store.isDark ? 'white' : 'black' };
   const BorderStyle = {

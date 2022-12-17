@@ -8,7 +8,7 @@ import { MemberCard } from '../MemberCard';
 
 export const Members = observer(() => {
   const lang = useLang();
-  
+
   useEffect(() => {
     fetch(
       'http://130.193.43.180/betterweb/api/v1/getData?' +
