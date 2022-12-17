@@ -1,14 +1,17 @@
 import { observer } from 'mobx-react';
 import Image from 'next/image';
 import { FormEvent, useState } from 'react';
+import { useLang } from 'store/lang';
 import styled from 'styled-components';
 import closeIcon from '../../assets/icons/close.svg';
 import { store } from '../../store';
 import { Content } from '../Content';
 
 export const ContactForm = observer(({ close }: { close: () => void }) => {
+  const lang = useLang();
+
   function submitForm(event: FormEvent<HTMLFormElement>) {
-    setSubmitStatus(store.isRu ? 'Отправляем…' : 'Sending…');
+    setSubmitStatus(lang.popupStatusInProgress);
     event.preventDefault();
     fetch(event.currentTarget.action, {
       method: 'POST',
@@ -18,20 +21,16 @@ export const ContactForm = observer(({ close }: { close: () => void }) => {
         if (!response.ok) {
           throw new Error(`Bad HTTP response: ${response.status}`);
         }
-        setSubmitStatus(store.isRu ? 'Отправлено' : 'Sent');
+        setSubmitStatus(lang.popupStatusDone);
         setTimeout(close, 1000);
       })
       .catch(error => {
-        setSubmitStatus(
-          store.isRu ? 'Ошибка. Повторить?' : 'Error. Try again?'
-        );
+        setSubmitStatus(lang.popupStatusError);
         console.error(`Could not send a message, error: ${error}`);
       });
   }
 
-  const [submitStatus, setSubmitStatus] = useState(
-    store.isRu ? 'Отправить' : 'Send'
-  );
+  const [submitStatus, setSubmitStatus] = useState(lang.popupButton);
 
   const FontStyle = { color: store.isDark ? 'white' : 'black' };
   const BorderStyle = {
@@ -50,7 +49,7 @@ export const ContactForm = observer(({ close }: { close: () => void }) => {
           alt="close"
         />
       </CloseIconContainer>
-      <h1 style={FontStyle}>{store.isRu ? 'Написать нам' : 'Contact us'}</h1>
+      <h1 style={FontStyle}>{lang.popupHeading}</h1>
       <form
         id="contact-us-form"
         method="post"
@@ -59,7 +58,7 @@ export const ContactForm = observer(({ close }: { close: () => void }) => {
       >
         <FormGrid>
           <label style={FontStyle} htmlFor="name">
-            {(store.isRu ? 'Имя' : 'Name') + ':'}
+            {lang.popupName}
           </label>
           <InputStyled
             style={{ ...BorderStyle, ...FontStyle }}
@@ -79,7 +78,7 @@ export const ContactForm = observer(({ close }: { close: () => void }) => {
             required
           />
           <label style={FontStyle} htmlFor="message">
-            {(store.isRu ? 'Сообщение' : 'Message') + ':'}
+            {lang.popupMessage}
           </label>
           <TextAreaStyled
             style={{ ...BorderStyle, ...FontStyle }}
@@ -89,8 +88,7 @@ export const ContactForm = observer(({ close }: { close: () => void }) => {
             required
           />
           <label style={FontStyle} htmlFor="privacy">
-            {(store.isRu ? 'Я принял(а) условия' : 'I accept the conditions') +
-              ':'}
+            {lang.popupConditions}
           </label>
           <CheckBoxStyled
             type="checkbox"

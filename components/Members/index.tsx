@@ -1,16 +1,19 @@
 import { observer } from 'mobx-react';
 import { useEffect } from 'react';
+import { useLang } from 'store/lang';
 import styled from 'styled-components';
 import { store } from '../../store';
 import { Content } from '../Content';
 import { MemberCard } from '../MemberCard';
 
 export const Members = observer(() => {
+  const lang = useLang();
+
   useEffect(() => {
     fetch(
       'http://130.193.43.180/betterweb/api/v1/getData?' +
         new URLSearchParams({
-          locale: store.isRu ? 'ru' : 'en',
+          locale: store.lang,
           datatype: 'members'
         })
     )
@@ -19,13 +22,13 @@ export const Members = observer(() => {
         store.setMembers(data.data);
       })
       .catch(res => console.error(res));
-  }, [store.isRu]);
+  }, [store.lang]);
 
   const color = store.isDark ? 'white' : 'black';
   return (
     <MembersWrapper>
       <SectionTitle style={{ color: color }}>
-        {store.isRu ? 'Наша команда' : 'Our team'}
+        {lang.headingOurTeam}
       </SectionTitle>
       <MembersList>
         {store.members.map((member, i) => (

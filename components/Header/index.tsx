@@ -1,6 +1,7 @@
 import { observer } from 'mobx-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useLang } from 'store/lang';
 import styled from 'styled-components';
 import sun from '../../assets/icons/sun.svg';
 import { store } from '../../store';
@@ -8,6 +9,7 @@ import { Content } from '../Content';
 import NavLink from '../NavLink';
 
 export const Header = observer(() => {
+  const lang = useLang();
   const color = store.isDark ? 'white' : 'black';
 
   return (
@@ -21,12 +23,9 @@ export const Header = observer(() => {
           <Logo style={{ color: color }}>BetterWeb</Logo>
         </Link>
         <NavMenu>
-          <NavLink href="/" name={store.isRu ? 'Главная' : 'Main'} />
-          <NavLink
-            href="/projects"
-            name={store.isRu ? 'Проекты' : 'Projects'}
-          />
-          <NavLink href="/about-us" name={store.isRu ? 'О нас' : 'About us'} />
+          <NavLink href="/" name={lang.navLinkMain} />
+          <NavLink href="/projects" name={lang.navLinkProjects} />
+          <NavLink href="/about-us" name={lang.navLinkAbout} />
         </NavMenu>
         <Buttons>
           <ThemeButton onClick={store.changeTheme}>
@@ -38,7 +37,7 @@ export const Header = observer(() => {
               className="clickable"
               onClick={store.changeLang}
             >
-              {store.isRu ? 'RU' : 'EN'}
+              {store.lang.toUpperCase()}
             </Langs>
           </LangsWrapper>
         </Buttons>

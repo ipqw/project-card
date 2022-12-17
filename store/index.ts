@@ -7,9 +7,16 @@ class Storage {
     makeAutoObservable(this);
   }
 
-  isRu = true;
+  lang = 'ru';
   changeLang = () => {
-    this.isRu = !this.isRu;
+    switch (this.lang) {
+      case 'ru':
+        this.lang = 'en';
+        break;
+      case 'en':
+        this.lang = 'ru';
+        break;
+    }
   };
 
   members: Array<IMember> = [];
