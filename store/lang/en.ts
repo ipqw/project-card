@@ -7,5 +7,13 @@ export const en: Lingo = {
   headingOurTeam: 'Our team',
   headingAdresses: 'Adresses',
   footerCreatedTime: 'Project creation time: ',
-  footerContactUs: 'Contack us'
+  footerContactUs: 'Contact us',
+  popupStatusInProgress: 'Sending…',
+  popupStatusDone: 'Sent',
+  popupStatusError: 'Error. Try again?',
+  popupButton: 'Send',
+  popupHeading: 'Contact us',
+  popupName: 'Name: ',
+  popupMessage: 'Message: ',
+  popupConditions: 'I accept the conditions: '
 };
