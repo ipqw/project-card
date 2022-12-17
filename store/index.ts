@@ -7,7 +7,7 @@ class Storage {
     makeAutoObservable(this);
   }
 
-  lang = 'ru';
+  lang: 'ru' | 'en' = 'ru';
   changeLang = () => {
     switch (this.lang) {
       case 'ru':
