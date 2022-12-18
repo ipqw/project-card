@@ -1,3 +1,4 @@
+import YandexMap from 'components/YandexMap';
 import { observer } from 'mobx-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -26,58 +27,81 @@ export const MemberCardLarge = observer((props: IProps) => {
 
   return (
     <MemberCardWrapper onClick={() => router.push(`/members/${member.id}`)}>
-      <Image src={defaultAvatar} priority alt="" width={280} height={225} />
-      <MemberData style={{ color: color }}>
-        <MemberName>
-          <p>{member.name}</p>
-          <Link href={member.github}>{member.github}</Link>
-          {/* delete symbol '@' at start of username and create link */}
-          <Link href={'https://t.me/' + member.telegram.slice(1)}>
-            {member.telegram}
-          </Link>
-        </MemberName>
+      <MemberMedia>
+        <Image src={defaultAvatar} priority alt="" height={250} />
+        <Title>{lang.meOnMap}</Title>
+        <YandexMap location={member.location}></YandexMap>
+      </MemberMedia>
+      <MemberData>
+        <MemberName>{member.name}</MemberName>
         <MemberDesc>{member.description}</MemberDesc>
-        <MemberStack>{member.stack.join(', ')}</MemberStack>
+        <MemberContacts>
+          <Title>{lang.myContacts}</Title>
+          <Link href={member.github}>Github: {member.github}</Link>
+          <Link href={'https://t.me/' + member.telegram.slice(1)}>
+            Telegram: {member.telegram}
+          </Link>
+        </MemberContacts>
+        <MemberStackWrapper>
+          <Title>{lang.myStack}</Title>
+          <MemberStack>{member.stack.join(', ')}</MemberStack>
+        </MemberStackWrapper>
       </MemberData>
     </MemberCardWrapper>
   );
 });
 
+const Title = styled.span`
+  font-size: 2em;
+  font-weight: 700;
+`;
+
 const MemberCardWrapper = styled.div`
   height: 500px;
   width: 90%;
+  display: flex;
+  justify-content: space-between;
   border-radius: 10px;
-  border-bottom: solid 1px #888;
-  background-color: #888;
-  margin-bottom: 10px;
+  background-color: #f5f5f5;
+  overflow: hidden;
+  color: 'black';
+`;
+
+const MemberMedia = styled.div`
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 const MemberData = styled.div`
+  width: 45%;
+  height: 100%;
+  padding: 1em 0;
+  gap: 1em;
   display: flex;
   flex-direction: column;
-  height: calc(480px - 225px);
 `;
 
-const MemberName = styled.div`
-  height: 3em;
-  display: flex;
-  align-items: center;
-  font-size: 1.2em;
+const MemberName = styled.span`
+  font-size: 3em;
   font-weight: 700;
-  padding: 0;
-  margin: 0;
-
-  a {
-    height: 18px;
-    padding-left: 7px;
-  }
 `;
 
 const MemberDesc = styled.span`
   margin-top: 0.5em;
 `;
 
+const MemberContacts = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const MemberStackWrapper = styled.div``;
+
 const MemberStack = styled.span`
+  display: flex;
+  flex-direction: column;
   margin-top: auto;
   margin-bottom: 0.5em;
   color: #888;

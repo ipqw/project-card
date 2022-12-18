@@ -14,7 +14,10 @@ export const ru = {
   popupName: 'Имя: ',
   popupMessage: 'Сообщение: ',
   popupConditions: 'Я принял(а) условия: ',
-  notMemberError: 'Разработчика с таким id нет!'
+  notMemberError: 'Разработчика с таким id нет!',
+  meOnMap: 'Я на карте',
+  myContacts: 'Мои контакты',
+  myStack: 'Мой стек'
 };
 
 export type Lingo = typeof ru;
