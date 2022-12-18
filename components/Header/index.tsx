@@ -25,7 +25,6 @@ export const Header = observer(() => {
         <NavMenu>
           <NavLink href="/" name={lang.navLinkMain} />
           <NavLink href="/projects" name={lang.navLinkProjects} />
-          <NavLink href="/about-us" name={lang.navLinkAbout} />
         </NavMenu>
         <Buttons>
           <ThemeButton onClick={store.changeTheme}>

@@ -13,7 +13,6 @@ export default function MemberPage() {
   const [member, setMember] = useState<undefined | IMember>(undefined);
 
   useEffect(() => {
-    console.log(lang);
     if (!memberId) {
       return;
     }
