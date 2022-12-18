@@ -14,7 +14,7 @@ type IProps = {
   member: IMember | undefined;
 };
 
-export const MemberCard = observer((props: IProps) => {
+export const MemberCardLarge = observer((props: IProps) => {
   const router = useRouter();
   const member = props.member;
   const lang = useLang();
@@ -33,21 +33,11 @@ export const MemberCard = observer((props: IProps) => {
         <MemberName>
           <p>{member.name}</p>
           <Link href={member.github}>
-            <Image
-              style={{ backgroundColor: 'white', borderRadius: '100%' }}
-              src={gh}
-              alt=""
-              width={18}
-            />
+            {member.github}
           </Link>
           {/* delete symbol '@' at start of username and create link */}
           <Link href={'https://t.me/' + member.telegram.slice(1)}>
-            <Image
-              style={{ backgroundColor: 'white', borderRadius: '100%' }}
-              src={tg}
-              alt=""
-              width={18}
-            />
+            {member.telegram}
           </Link>
         </MemberName>
         <MemberDesc>{member.description}</MemberDesc>
@@ -58,12 +48,11 @@ export const MemberCard = observer((props: IProps) => {
 });
 
 const MemberCardWrapper = styled.div`
-  height: 480px;
-  min-width: 280px;
-  width: 280px;
-  border-radius: 10px 10px 0 0;
-  overflow: hidden;
+  height: 500px;
+  width: 90%;
+  border-radius: 10px;
   border-bottom: solid 1px #888;
+  background-color: #888;
   margin-bottom: 10px;
 `;
 
