@@ -19,7 +19,7 @@ export const Header = observer(() => {
       }}
     >
       <ContentHeader>
-        <Link href="#">
+        <Link href="/">
           <Logo style={{ color: color }}>BetterWeb</Logo>
         </Link>
         <NavMenu>
