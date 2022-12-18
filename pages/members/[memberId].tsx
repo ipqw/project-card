@@ -3,13 +3,14 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { store } from 'store';
 import { useLang } from 'store/lang';
+import { IMember } from 'types';
 import { Page } from '../../components/Page';
 
 export default function MemberPage() {
   const router = useRouter();
-  const { memberId } = router.query;
+  const memberId = parseInt(router.query.memberId as string);
   const lang = useLang();
-  const [member, setMember] = useState();
+  const [member, setMember] = useState<undefined | IMember>(undefined);
 
   useEffect(() => {
     if (!memberId) {
@@ -25,7 +26,6 @@ export default function MemberPage() {
       .then(res => res.json())
       .then(data => {
         store.setMembers(data.data);
-        //@ts-ignorets
         setMember(store.getMemberById(memberId));
       })
       .catch(res => console.error(res));

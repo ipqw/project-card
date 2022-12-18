@@ -28,7 +28,7 @@ class Storage {
   };
 
   getMemberById(id: number): IMember | undefined {
-    let res;
+    let res: undefined | IMember;
     this.members.forEach(member => {
       if (member.id == id) res = toJS(member);
     });
