@@ -8,11 +8,12 @@ import { Page } from '../../components/Page';
 
 export default function MemberPage() {
   const router = useRouter();
-  const memberId = parseInt(router.query.memberId as string);
   const lang = useLang();
+  const memberId = parseInt(router.query.memberId as string);
   const [member, setMember] = useState<undefined | IMember>(undefined);
 
   useEffect(() => {
+    console.log(lang);
     if (!memberId) {
       return;
     }
@@ -29,12 +30,14 @@ export default function MemberPage() {
         setMember(store.getMemberById(memberId));
       })
       .catch(res => console.error(res));
-  }, [store.lang, memberId]);
+  }, [store.lang, memberId, member]);
 
   return (
     <Page>
       {member === undefined ? (
-        <p style={{ color: 'white' }}>There is not member with same id!</p>
+        <p style={{ color: store.isDark ? 'white' : 'black' }}>
+          {lang.notMemberError}
+        </p>
       ) : (
         <MemberCard member={member} />
       )}
