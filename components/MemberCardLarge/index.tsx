@@ -21,9 +21,7 @@ export const MemberCardLarge = observer((props: IProps) => {
   let color = store.isDark ? 'white' : 'black';
 
   if (member === undefined) {
-    return (<p style={{ color: color }}>
-      {lang.notMemberError}
-    </p>)
+    return <p style={{ color: color }}>{lang.notMemberError}</p>;
   }
 
   return (
@@ -32,9 +30,7 @@ export const MemberCardLarge = observer((props: IProps) => {
       <MemberData style={{ color: color }}>
         <MemberName>
           <p>{member.name}</p>
-          <Link href={member.github}>
-            {member.github}
-          </Link>
+          <Link href={member.github}>{member.github}</Link>
           {/* delete symbol '@' at start of username and create link */}
           <Link href={'https://t.me/' + member.telegram.slice(1)}>
             {member.telegram}

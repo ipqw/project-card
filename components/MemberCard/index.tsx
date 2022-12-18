@@ -21,9 +21,7 @@ export const MemberCard = observer((props: IProps) => {
   let color = store.isDark ? 'white' : 'black';
 
   if (member === undefined) {
-    return (<p style={{ color: color }}>
-      {lang.notMemberError}
-    </p>)
+    return <p style={{ color: color }}>{lang.notMemberError}</p>;
   }
 
   return (
