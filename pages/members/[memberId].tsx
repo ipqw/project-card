@@ -33,7 +33,11 @@ export default function MemberPage() {
 
   return (
     <Page>
-      { member === undefined ? <p style={{color: 'white'}}>There is not member with same id!</p> : <MemberCard member={member}/> }
+      {member === undefined ? (
+        <p style={{ color: 'white' }}>There is not member with same id!</p>
+      ) : (
+        <MemberCard member={member} />
+      )}
     </Page>
   );
 }
