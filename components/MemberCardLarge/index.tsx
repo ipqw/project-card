@@ -1,12 +1,11 @@
-import YandexMap from 'components/YandexMap';
+import { Content } from 'components/Content';
 import { observer } from 'mobx-react';
+import YandexMap from '../YandexMap'
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useLang } from 'store/lang';
 import styled from 'styled-components';
-import gh from '../../assets/icons/gh.svg';
-import tg from '../../assets/icons/tg.svg';
 import defaultAvatar from '../../assets/images/default-avatar.jpg';
 import { store } from '../../store';
 import { IMember } from '../../types';
@@ -28,9 +27,11 @@ export const MemberCardLarge = observer((props: IProps) => {
   return (
     <MemberCardWrapper onClick={() => router.push(`/members/${member.id}`)}>
       <MemberMedia>
-        <Image src={defaultAvatar} priority alt="" height={250} />
-        <Title>{lang.meOnMap}</Title>
-        <YandexMap location={member.location}></YandexMap>
+        <Image src={defaultAvatar} priority alt="" height={250} style={{ zIndex: 2 }} />
+        <TitleMap>{lang.meOnMap}</TitleMap>
+        <MapWrapper>
+          <YandexMap location={member.location} height='100%'></YandexMap>
+        </MapWrapper>
       </MemberMedia>
       <MemberData>
         <MemberName>{member.name}</MemberName>
@@ -54,11 +55,15 @@ export const MemberCardLarge = observer((props: IProps) => {
 const Title = styled.span`
   font-size: 2em;
   font-weight: 700;
+  z-index: 2;
 `;
 
-const MemberCardWrapper = styled.div`
+const TitleMap = styled(Title)`
+  margin-left: 10px;
+`
+
+const MemberCardWrapper = styled(Content)`
   height: 500px;
-  width: 90%;
   display: flex;
   justify-content: space-between;
   border-radius: 10px;
@@ -68,14 +73,22 @@ const MemberCardWrapper = styled.div`
 `;
 
 const MemberMedia = styled.div`
-  width: 45%;
+  position: relative;
+  width: 49%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 `;
 
+const MapWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+`
+
 const MemberData = styled.div`
-  width: 45%;
+  width: 49%;
   height: 100%;
   padding: 1em 0;
   gap: 1em;
