@@ -53,7 +53,7 @@ export const ContactForm = observer(({ close }: { close: () => void }) => {
       <form
         id="contact-us-form"
         method="post"
-        action="https://130.193.43.180/betterweb/api/v1/write-us"
+        action="http://130.193.43.180/betterweb/api/v1/write-us"
         onSubmit={submitForm}
       >
         <FormGrid>

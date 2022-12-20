@@ -13,7 +13,7 @@ type IProps = {
 export const ProjectCard = observer(({ project }: IProps) => {
   const color = store.isDark ? 'white' : 'black';
   const backColor = store.isDark ? '#0d0d0d' : '#f5f5f5';
-  const router = useRouter()
+  const router = useRouter();
 
   return (
     <ProjectWrapper style={{ backgroundColor: backColor }}>
@@ -22,7 +22,12 @@ export const ProjectCard = observer(({ project }: IProps) => {
         <ProjectDate>
           {new Date(project.createdAt).toLocaleDateString()}
         </ProjectDate>
-        <ProjectName onClick={() => router.push(`/projects/${project.id}`)} style={{ color: color }}>{project?.name}</ProjectName>
+        <ProjectName
+          onClick={() => router.push(`/projects/${project.id}`)}
+          style={{ color: color }}
+        >
+          {project?.name}
+        </ProjectName>
         <ProjectDescription style={{ color: color }}>
           {project?.description}
         </ProjectDescription>
