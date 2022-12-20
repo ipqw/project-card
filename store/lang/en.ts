@@ -15,6 +15,9 @@ export const en: Lingo = {
   popupName: 'Name: ',
   popupMessage: 'Message: ',
   popupConditions: 'I accept the conditions: ',
+  projectDescription: 'Description: ',
+  dateCreated: 'Date of creation: ',
+  projectStack: 'Project stack: '
   notMemberError: 'There is not member with same id!',
   meOnMap: 'Me on map',
   myContacts: 'My contacts',

@@ -19,7 +19,7 @@ export const Projects = observer(() => {
         store.setMembers(data.data);
       })
       .catch(res => console.error(res));
-  });
+  }, [store.lang]);
 
   useEffect(() => {
     fetch(
@@ -34,7 +34,7 @@ export const Projects = observer(() => {
         store.setProjects(data.data);
       })
       .catch(res => console.error(res));
-  });
+  }, [store.lang]);
 
   const [amount, setAmount] = useState(3);
   let displayedProjects = store.projects.slice(0, amount);
