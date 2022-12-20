@@ -1,3 +1,4 @@
+import { Content } from 'components/Content';
 import { observer } from 'mobx-react';
 import { useState } from 'react';
 import { useLang } from 'store/lang';
@@ -16,7 +17,7 @@ export const Footer = observer(() => {
           backgroundColor: store.isDark ? 'rgba(255, 255, 255, 0.1)' : '#f5f5f5'
         }}
       >
-        <FooterContent className="px-5">
+        <FooterContent>
           <DateParagraph>
             {lang.footerCreatedTime + store.createTime}
           </DateParagraph>
@@ -43,6 +44,7 @@ export const Footer = observer(() => {
 
 const DateParagraph = styled.p`
   color: gray;
+  margin: 0;
   span {
     color: #000;
   }
@@ -51,13 +53,21 @@ const DateParagraph = styled.p`
       color: #fff;
     }
   }
+
+  @media (max-width: 410px) {
+    font-size: 0.9rem;
+    text-align: center;
+  }
 `;
 
-const FooterContent = styled.div`
+const FooterContent = styled(Content)`
   display: flex;
   align-items: center;
+  gap: 15px;
   justify-content: space-between;
-  width: 1280px;
+  @media (max-width: 410px) {
+    flex-direction: column;
+  }
 `;
 
 const FooterWrapper = styled.footer`
@@ -65,6 +75,8 @@ const FooterWrapper = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 30px;
+  padding: 20px 0;
   width: 100%;
   background-color: #ebecf0;
   @media (prefers-color-scheme: dark) {
@@ -78,4 +90,5 @@ const ContactUsButton = styled.button`
   padding: 5px 50px;
   border: 1px solid grey;
   color: grey;
+  cursor: pointer;
 `;

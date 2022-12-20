@@ -72,5 +72,13 @@ const MembersList = styled.div`
 
 const SectionTitle = styled.h1`
   text-align: left;
-  margin-top: 120px;
+  --spacing: 20px;
+  margin-top: calc(100px + var(--spacing));
+  @media (max-width: 580px) {
+    margin-top: calc(120px + var(--spacing));
+  }
+
+  @media (max-width: 375px) {
+    margin-top: calc(150px + var(--spacing));
+  }
 `;
