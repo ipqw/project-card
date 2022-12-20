@@ -8,7 +8,7 @@ import { ProjectCard } from '../ProjectCard';
 export const Projects = observer(() => {
   useEffect(() => {
     fetch(
-      'http://130.193.43.180/betterweb/api/v1/getData?' +
+      'https://130.193.43.180/betterweb/api/v1/getData?' +
         new URLSearchParams({
           locale: store.lang,
           datatype: 'members'
@@ -19,11 +19,11 @@ export const Projects = observer(() => {
         store.setMembers(data.data);
       })
       .catch(res => console.error(res));
-  });
+  }, [store.lang]);
 
   useEffect(() => {
     fetch(
-      'http://130.193.43.180/betterweb/api/v1/getData?' +
+      'https://130.193.43.180/betterweb/api/v1/getData?' +
         new URLSearchParams({
           locale: store.lang,
           datatype: 'projects'
@@ -34,7 +34,7 @@ export const Projects = observer(() => {
         store.setProjects(data.data);
       })
       .catch(res => console.error(res));
-  });
+  }, [store.lang]);
 
   return (
     <ProjectsWrapper>
