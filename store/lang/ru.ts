@@ -15,7 +15,7 @@ export const ru = {
   popupConditions: 'Я принял(а) условия: ',
   projectDescription: 'Описание: ',
   dateCreated: 'Дата создания: ',
-  projectStack: 'Технологии проекта: '
+  projectStack: 'Технологии проекта: ',
   notMemberError: 'Разработчика с таким id нет!',
   meOnMap: 'Я на карте',
   myContacts: 'Мои контакты',
