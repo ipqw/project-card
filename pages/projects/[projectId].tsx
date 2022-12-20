@@ -3,7 +3,7 @@ import { ProjectCardLarge } from "components/ProjectCardLarge";
 import { toJS } from "mobx";
 import { observer } from "mobx-react";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { store } from "store";
 
 const ProjectPage = observer(() => {
@@ -44,7 +44,7 @@ const ProjectPage = observer(() => {
     
     return(
         <Page>
-            <ProjectCardLarge project={project}/>
+            <ProjectCardLarge project={project}/>z
         </Page>
     )
 })

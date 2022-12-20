@@ -16,5 +16,7 @@ export const en: Lingo = {
   popupName: 'Name: ',
   popupMessage: 'Message: ',
   popupConditions: 'I accept the conditions: ',
-  projectDescription: 'Description'
+  projectDescription: 'Description: ',
+  dateCreated: 'Date of creation: ',
+  projectStack: 'Project stack: ',
 };

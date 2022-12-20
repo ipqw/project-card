@@ -14,7 +14,9 @@ export const ru = {
   popupName: 'Имя: ',
   popupMessage: 'Сообщение: ',
   popupConditions: 'Я принял(а) условия: ',
-  projectDescription: 'Описание: '
+  projectDescription: 'Описание: ',
+  dateCreated: 'Дата создания: ',
+  projectStack: 'Технологии проекта: ',
 };
 
 export type Lingo = typeof ru;
