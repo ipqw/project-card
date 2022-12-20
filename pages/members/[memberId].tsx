@@ -1,4 +1,4 @@
-import { MemberCard } from 'components/MemberCard';
+import { MemberCardLarge } from 'components/MemberCardLarge';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { store } from 'store';
@@ -13,7 +13,6 @@ export default function MemberPage() {
   const [member, setMember] = useState<undefined | IMember>(undefined);
 
   useEffect(() => {
-    console.log(lang);
     if (!memberId) {
       return;
     }
@@ -30,17 +29,11 @@ export default function MemberPage() {
         setMember(store.getMemberById(memberId));
       })
       .catch(res => console.error(res));
-  }, [store.lang, memberId, member]);
+  }, [store.lang, memberId]);
 
   return (
     <Page>
-      {member === undefined ? (
-        <p style={{ color: store.isDark ? 'white' : 'black' }}>
-          {lang.notMemberError}
-        </p>
-      ) : (
-        <MemberCard member={member} />
-      )}
+      <MemberCardLarge member={member} />
     </Page>
   );
 }

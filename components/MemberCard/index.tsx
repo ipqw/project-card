@@ -2,6 +2,7 @@ import { observer } from 'mobx-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useLang } from 'store/lang';
 import styled from 'styled-components';
 import gh from '../../assets/icons/gh.svg';
 import tg from '../../assets/icons/tg.svg';
@@ -10,13 +11,18 @@ import { store } from '../../store';
 import { IMember } from '../../types';
 
 type IProps = {
-  member: IMember;
+  member: IMember | undefined;
 };
 
 export const MemberCard = observer((props: IProps) => {
   const router = useRouter();
   const member = props.member;
+  const lang = useLang();
   let color = store.isDark ? 'white' : 'black';
+
+  if (member === undefined) {
+    return <p style={{ color: color }}>{lang.notMemberError}</p>;
+  }
 
   return (
     <MemberCardWrapper onClick={() => router.push(`/members/${member.id}`)}>
