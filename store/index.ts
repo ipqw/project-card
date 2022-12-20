@@ -1,4 +1,4 @@
-import { makeAutoObservable } from 'mobx';
+import { makeAutoObservable, toJS } from 'mobx';
 import { IMember, IProject } from 'types';
 import { projectCreatedAt } from '../mock/mock';
 
@@ -7,7 +7,7 @@ class Storage {
     makeAutoObservable(this);
   }
 
-  lang = 'ru';
+  lang: 'ru' | 'en' = 'ru';
   changeLang = () => {
     switch (this.lang) {
       case 'ru':
@@ -26,6 +26,14 @@ class Storage {
   setMembers = (a: any) => {
     this.members = a;
   };
+
+  getMemberById(id: number): IMember | undefined {
+    let res: undefined | IMember;
+    this.members.forEach(member => {
+      if (member.id == id) res = toJS(member);
+    });
+    return res;
+  }
 
   setProjects = (a: any) => {
     this.projects = a;

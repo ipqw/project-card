@@ -19,13 +19,12 @@ export const Header = observer(() => {
       }}
     >
       <ContentHeader>
-        <Link href="#">
+        <Link href="/">
           <Logo style={{ color: color }}>BetterWeb</Logo>
         </Link>
         <NavMenu>
           <NavLink href="/" name={lang.navLinkMain} />
           <NavLink href="/projects" name={lang.navLinkProjects} />
-          <NavLink href="/about-us" name={lang.navLinkAbout} />
         </NavMenu>
         <Buttons>
           <ThemeButton onClick={store.changeTheme}>
