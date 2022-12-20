@@ -1,4 +1,6 @@
+import { toJS } from 'mobx';
 import { observer } from 'mobx-react';
+import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import { IProject } from 'types';
 import image from '../../assets/images/default-image.png';
@@ -11,17 +13,26 @@ type IProps = {
 export const ProjectCard = observer(({ project }: IProps) => {
   const color = store.isDark ? 'white' : 'black';
   const backColor = store.isDark ? '#0d0d0d' : '#f5f5f5';
+  const members = toJS(store.members)
+  const getAuthorById = (id: any) => members.find(elem => elem.id == id)
+  const authors = project.authors.map((el) => {
+    return getAuthorById(el)
+  })
+  const router = useRouter()
+  
 
   return (
     <ProjectWrapper style={{ backgroundColor: backColor }}>
       <Image src={image.src} alt="project image" />
       <ProjectDiv>
         <ProjectDate>
-          {/* {project?.createdAt.toLocaleDateString('en-US')} */}
+          {new Date(project.createdAt).toLocaleDateString()}
         </ProjectDate>
-        <ProjectName style={{ color: color }}>{project?.name}</ProjectName>
+        <ProjectName onClick={() => router.push(`/projects/${project.id}`)} style={{ color: color }}>{project?.name}</ProjectName>
         <ProjectAuthors style={{ color: color }}>
-          {/* {authors.map((elem: any) => elem.name).join(', ')} */}
+        {
+          authors.join(', ')
+        }
         </ProjectAuthors>
         <ProjectDescription style={{ color: color }}>
           {project?.description}
@@ -34,7 +45,6 @@ export const ProjectCard = observer(({ project }: IProps) => {
 
 const ProjectDate = styled.p`
   font-size: 14px;
-  opacity: 0;
   color: grey;
   margin: 0;
   margin-top: 25px;
@@ -56,6 +66,7 @@ const ProjectWrapper = styled.div`
 `;
 
 const ProjectName = styled.h1`
+  cursor: pointer;
   font-size: 40px;
   font-weight: bold;
   margin: 0;

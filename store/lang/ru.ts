@@ -13,7 +13,8 @@ export const ru = {
   popupHeading: 'Написать нам',
   popupName: 'Имя: ',
   popupMessage: 'Сообщение: ',
-  popupConditions: 'Я принял(а) условия: '
+  popupConditions: 'Я принял(а) условия: ',
+  projectDescription: 'Описание: '
 };
 
 export type Lingo = typeof ru;

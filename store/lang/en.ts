@@ -15,5 +15,6 @@ export const en: Lingo = {
   popupHeading: 'Contact us',
   popupName: 'Name: ',
   popupMessage: 'Message: ',
-  popupConditions: 'I accept the conditions: '
+  popupConditions: 'I accept the conditions: ',
+  projectDescription: 'Description'
 };
