@@ -1,6 +1,6 @@
 import { Content } from 'components/Content';
 import { observer } from 'mobx-react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { store } from '../../store';
 import { ProjectCard } from '../ProjectCard';
@@ -19,7 +19,7 @@ export const Projects = observer(() => {
         store.setMembers(data.data);
       })
       .catch(res => console.error(res));
-  });
+  }, [store.lang]);
 
   useEffect(() => {
     fetch(
@@ -34,18 +34,28 @@ export const Projects = observer(() => {
         store.setProjects(data.data);
       })
       .catch(res => console.error(res));
-  });
+  }, [store.lang]);
+
+  const [amount, setAmount] = useState(3);
+  let displayedProjects = store.projects.slice(0, amount);
 
   return (
     <ProjectsWrapper>
-      {store.projects.map((project, i) => {
-        return <ProjectCard project={project} key={i} />;
-      })}
+      <ProjectsWrapperList>
+        {displayedProjects.map((project, i) => {
+          return <ProjectCard project={project} key={i} />;
+        })}
+      </ProjectsWrapperList>
+      {amount < store.projects.length &&
+        <ShowMoreButton onClick={() => setAmount(amount + 3)}>показать еще</ShowMoreButton>
+      }
     </ProjectsWrapper>
   );
 });
 
-const ProjectsWrapper = styled(Content)`
+const ProjectsWrapper = styled(Content)``;
+
+const ProjectsWrapperList = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   @media (max-width: 1024px) {
@@ -65,5 +75,23 @@ const ProjectsWrapper = styled(Content)`
 
   @media (max-width: 375px) {
     margin-top: calc(150px + var(--spacing));
+  }
+`
+
+const ShowMoreButton = styled.button`
+  width: 150px;
+  height: 3em;
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  transition: ease-in-out 0.3s;
+
+  &:hover {
+    background-color: #ddd;
+    box-shadow: 0px 0px 2px 0px #aaa inset;
   }
 `;

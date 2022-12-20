@@ -17,7 +17,6 @@ export const Header = observer(() => {
   useEffect(() => {
     setMatchesMobile(window.matchMedia('(max-width: 580px)').matches);
     window.matchMedia('(max-width: 580px)').addEventListener('change', e => {
-      console.log(e.matches);
       setMatchesMobile(e.matches);
     });
   }, []);
@@ -26,7 +25,6 @@ export const Header = observer(() => {
       <NavMenu>
         <NavLink href="/" name={lang.navLinkMain} />
         <NavLink href="/projects" name={lang.navLinkProjects} />
-        <NavLink href="/about-us" name={lang.navLinkAbout} />
       </NavMenu>
       <Buttons>
         <ThemeButton onClick={store.changeTheme}>
@@ -51,7 +49,7 @@ export const Header = observer(() => {
       }}
     >
       <ContentHeader>
-        <Link href="#">
+        <Link href="/">
           <Logo style={{ color: color }}>BetterWeb</Logo>
         </Link>
         {matchesMobile ? (

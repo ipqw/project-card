@@ -1,34 +1,18 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Содержание
+1. [Краткая информация о проекте](#info)
+2. [Где можно посмотреть?](#project-link)
+3. [Инструкция по установке и запуску](#installation)
 
-## Getting Started
+# Краткая информация о проекте
+Вы находитесь в репозитории итогового проекта для Яндеск-интенсивов.
+Данный проект был разработан Гладенко Ильей, Губаревым Владиславом, Ивановым Германом и Овчинниковым Владимиром и представляет с собой многостраничный сайт вымышленного веб-агентства.
+На __главной странице__ размещена информация о каждом члене команды (включая геолокацию и форма обратной связи, реализованная при помощи модального окна. По клику на любого из разработчиков можно перейти на его страницу и получить более подробную информацию о нем соответственно.  
+На __странице проектов__ собрана информация о всех созданных нашей командой проектах. При этом, был использован принцип - отображаются только первые несколько проектов, остальные - только при необходимости по клику на кнопку.  
 
-First, run the development server:
+# Где можно посмотреть?
+Наш сайт имеет автоматический деплой на netlify и всегда может быть доступен по следующей ссылке: https://betterwebproject.netlify.app/
 
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+# Инструкция по установке и запуску
+1. Установите зависимости `npm i`
+2. Запустите локальный сервер `npm run dev`
+3. Откройте [http://localhost:3000](http://localhost:3000) в бразузере

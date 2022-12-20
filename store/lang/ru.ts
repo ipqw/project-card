@@ -1,7 +1,6 @@
 export const ru = {
   navLinkMain: 'Главная',
   navLinkProjects: 'Проекты',
-  navLinkAbout: 'О нас',
   headingOurTeam: 'Наша команда',
   headingAdresses: 'Адреса',
   footerCreatedTime: 'Время создания проекта: ',
@@ -14,7 +13,13 @@ export const ru = {
   popupName: 'Имя: ',
   popupMessage: 'Сообщение: ',
   popupConditions: 'Я принял(а) условия: ',
-  notMemberError: 'Разработчика с таким id нет!'
+  projectDescription: 'Описание: ',
+  dateCreated: 'Дата создания: ',
+  projectStack: 'Технологии проекта: ',
+  notMemberError: 'Разработчика с таким id нет!',
+  meOnMap: 'Я на карте',
+  myContacts: 'Мои контакты',
+  myStack: 'Мой стек'
 };
 
 export type Lingo = typeof ru;

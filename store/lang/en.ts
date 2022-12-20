@@ -3,7 +3,6 @@ import { Lingo } from './ru';
 export const en: Lingo = {
   navLinkMain: 'Main',
   navLinkProjects: 'Projects',
-  navLinkAbout: 'About us',
   headingOurTeam: 'Our team',
   headingAdresses: 'Adresses',
   footerCreatedTime: 'Project creation time: ',
@@ -16,5 +15,11 @@ export const en: Lingo = {
   popupName: 'Name: ',
   popupMessage: 'Message: ',
   popupConditions: 'I accept the conditions: ',
-  notMemberError: 'There is not member with same id!'
+  projectDescription: 'Description: ',
+  dateCreated: 'Date of creation: ',
+  projectStack: 'Project stack: ',
+  notMemberError: 'There is not member with same id!',
+  meOnMap: 'Me on map',
+  myContacts: 'My contacts',
+  myStack: 'My stack'
 };

@@ -16,7 +16,7 @@ export const LocationCard = observer(({ location, name }: IProps) => {
       <TextContent>
         <p>{name}</p>
       </TextContent>
-      <YandexMap location={location} />
+      <YandexMap height='200px' location={location} />
     </Card>
   );
 });

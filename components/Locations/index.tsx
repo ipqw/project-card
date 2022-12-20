@@ -24,6 +24,7 @@ export const Locations = observer(() => {
 
 const LocationsContent = styled(Content)`
   width: 100%;
+  margin-bottom: 30px;
 `;
 
 const Container = styled.div`
