@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useLang } from 'store/lang';
 import styled from 'styled-components';
+import { useState, useEffect } from 'react';
 import sun from '../../assets/icons/sun.svg';
 import { store } from '../../store';
 import { Content } from '../Content';
@@ -11,7 +12,38 @@ import NavLink from '../NavLink';
 export const Header = observer(() => {
   const lang = useLang();
   const color = store.isDark ? 'white' : 'black';
+  const [matchesMobile, setMatchesMobile] = useState(false);
 
+  useEffect(() => {
+    setMatchesMobile(window.matchMedia('(max-width: 580px)').matches);
+    window.matchMedia('(max-width: 580px)').addEventListener('change', e => {
+      console.log(e.matches);
+      setMatchesMobile(e.matches);
+    });
+  }, []);
+  const clickableContent = (
+    <>
+      <NavMenu>
+        <NavLink href="/" name={lang.navLinkMain} />
+        <NavLink href="/projects" name={lang.navLinkProjects} />
+        <NavLink href="/about-us" name={lang.navLinkAbout} />
+      </NavMenu>
+      <Buttons>
+        <ThemeButton onClick={store.changeTheme}>
+          <Image src={sun} alt="" width={18} />
+        </ThemeButton>
+        <LangsWrapper>
+          <Langs
+            style={{ color: color }}
+            className="clickable"
+            onClick={store.changeLang}
+          >
+            {store.lang.toUpperCase()}
+          </Langs>
+        </LangsWrapper>
+      </Buttons>
+    </>
+  );
   return (
     <HeaderWrapper
       style={{
@@ -22,25 +54,11 @@ export const Header = observer(() => {
         <Link href="#">
           <Logo style={{ color: color }}>BetterWeb</Logo>
         </Link>
-        <NavMenu>
-          <NavLink href="/" name={lang.navLinkMain} />
-          <NavLink href="/projects" name={lang.navLinkProjects} />
-          <NavLink href="/about-us" name={lang.navLinkAbout} />
-        </NavMenu>
-        <Buttons>
-          <ThemeButton onClick={store.changeTheme}>
-            <Image src={sun} alt="" width={18} />
-          </ThemeButton>
-          <LangsWrapper>
-            <Langs
-              style={{ color: color }}
-              className="clickable"
-              onClick={store.changeLang}
-            >
-              {store.lang.toUpperCase()}
-            </Langs>
-          </LangsWrapper>
-        </Buttons>
+        {matchesMobile ? (
+          <ClickableContent>{clickableContent}</ClickableContent>
+        ) : (
+          clickableContent
+        )}
       </ContentHeader>
     </HeaderWrapper>
   );
@@ -52,9 +70,16 @@ const HeaderWrapper = styled.header`
   left: 0;
   width: 100vw;
   height: 100px;
-  z-index: 1;
+  z-index: 2;
   backdrop-filter: blur(7px);
   background-color: rgba(255, 255, 255, 0.1);
+  @media (max-width: 580px) {
+    height: 120px;
+  }
+
+  @media (max-width: 375px) {
+    height: 150px;
+  }
 `;
 
 const ContentHeader = styled(Content)`
@@ -62,6 +87,11 @@ const ContentHeader = styled(Content)`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @media (max-width: 580px) {
+    flex-direction: column;
+    padding: 20px;
+    gap: 15px;
+  }
 `;
 
 const NavMenu = styled.nav`
@@ -94,7 +124,11 @@ const ThemeButton = styled.button`
   }
 `;
 
-const Langs = styled.p``;
+const Langs = styled.p`
+  @media (max-width: 580px) {
+    margin: 0;
+  }
+`;
 
 const LangsWrapper = styled.div`
   width: 30px;
@@ -104,4 +138,17 @@ const Logo = styled.p`
   font-family: Montserrat, OpenSans, sans-serif;
   font-weight: 700;
   font-size: 1.75rem;
+
+  @media (max-width: 580px) {
+    margin: 0;
+  }
+`;
+const ClickableContent = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  @media (max-width: 375px) {
+    flex-direction: column;
+  }
 `;

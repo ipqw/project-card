@@ -46,8 +46,24 @@ export const Projects = observer(() => {
 });
 
 const ProjectsWrapper = styled(Content)`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  margin-top: 120px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 670px) {
+    grid-template-columns: 1fr;
+  }
+  grid-auto-rows: 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  --spacing: 20px;
+  margin-top: calc(100px + var(--spacing));
+  @media (max-width: 580px) {
+    margin-top: calc(120px + var(--spacing));
+  }
+
+  @media (max-width: 375px) {
+    margin-top: calc(150px + var(--spacing));
+  }
 `;

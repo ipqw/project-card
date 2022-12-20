@@ -46,13 +46,11 @@ const ProjectDiv = styled.div`
 `;
 
 const ProjectWrapper = styled.div`
-  height: 712px;
-  width: 414px;
   margin: 0;
-
   margin-bottom: 30px;
   border-radius: 10px;
   overflow: hidden;
+  width: 100%;
 `;
 
 const ProjectName = styled.h1`
@@ -60,6 +58,9 @@ const ProjectName = styled.h1`
   font-weight: bold;
   margin: 0;
   margin-bottom: 20px;
+  @media (max-width: 670px) {
+    font-size: 30px;
+  }
 `;
 
 const ProjectDescription = styled.p`
@@ -83,6 +84,8 @@ const ProjectStack = styled.p`
 `;
 
 const Image = styled.img`
-  width: 414px;
+  width: 100%;
+  max-height: 200px;
   margin: 0;
+  object-fit: cover;
 `;

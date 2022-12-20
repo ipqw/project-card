@@ -27,6 +27,7 @@ const Card = styled.div`
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.2);
   flex-basis: calc(33.3% - 10px);
+  z-index: 1;
   @media (max-width: 1100px) {
     flex-basis: calc(50% - 8px);
   }
