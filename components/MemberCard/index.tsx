@@ -1,6 +1,7 @@
 import { observer } from 'mobx-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import gh from '../../assets/icons/gh.svg';
 import tg from '../../assets/icons/tg.svg';
@@ -13,11 +14,12 @@ type IProps = {
 };
 
 export const MemberCard = observer((props: IProps) => {
+  const router = useRouter();
   const member = props.member;
   let color = store.isDark ? 'white' : 'black';
 
   return (
-    <MemberCardWrapper>
+    <MemberCardWrapper onClick={() => router.push(`/members/${member.id}`)}>
       <Image src={defaultAvatar} priority alt="" width={280} height={225} />
       <MemberData style={{ color: color }}>
         <MemberName>
