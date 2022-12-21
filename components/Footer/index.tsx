@@ -18,9 +18,7 @@ export const Footer = observer(() => {
         }}
       >
         <FooterContent>
-          <DateParagraph>
-            {lang.footerRights}
-          </DateParagraph>
+          <DateParagraph>{lang.footerRights}</DateParagraph>
           <ContactUsButton
             type="button"
             onClick={() => setFormState(!formState)}
