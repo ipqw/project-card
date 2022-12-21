@@ -10,7 +10,7 @@ export const Projects = observer(() => {
   const lang = useLang();
   useEffect(() => {
     fetch(
-      'https://130.193.43.180/betterweb/api/v1/getData?' +
+      'https://api.stvorka34.ru/betterweb/api/v1/getData?' +
         new URLSearchParams({
           locale: store.lang,
           datatype: 'members'
@@ -25,7 +25,7 @@ export const Projects = observer(() => {
 
   useEffect(() => {
     fetch(
-      'https://130.193.43.180/betterweb/api/v1/getData?' +
+      'https://api.stvorka34.ru/betterweb/api/v1/getData?' +
         new URLSearchParams({
           locale: store.lang,
           datatype: 'projects'
