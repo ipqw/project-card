@@ -9,13 +9,25 @@ import { Content } from '../Content';
 
 export const ContactForm = observer(({ close }: { close: () => void }) => {
   const lang = useLang();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [isAccept, setIsAccept] = useState(false);
 
-  function submitForm(event: FormEvent<HTMLFormElement>) {
+  const submitForm = (e: FormEvent<HTMLFormElement>) => {
     setSubmitStatus(lang.popupStatusInProgress);
-    event.preventDefault();
-    fetch(event.currentTarget.action, {
+    e.preventDefault();
+
+    const data = {
+      name: name,
+      email: email,
+      message: message,
+      privacy: isAccept
+    };
+
+    fetch('https://api.stvorka34.ru/betterweb/api/v1/write-us', {
       method: 'POST',
-      body: new URLSearchParams(new FormData(event.currentTarget) as any)
+      body: new URLSearchParams(data as any) 
     })
       .then(response => {
         if (!response.ok) {
@@ -52,8 +64,6 @@ export const ContactForm = observer(({ close }: { close: () => void }) => {
       <h1 style={FontStyle}>{lang.popupHeading}</h1>
       <form
         id="contact-us-form"
-        method="post"
-        action="https://api.stvorka34.ru/betterweb/api/v1/write-us"
         onSubmit={submitForm}
       >
         <FormGrid>
@@ -65,6 +75,8 @@ export const ContactForm = observer(({ close }: { close: () => void }) => {
             type="text"
             id="name"
             name="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             required
           />
           <label style={FontStyle} htmlFor="email">
@@ -75,6 +87,8 @@ export const ContactForm = observer(({ close }: { close: () => void }) => {
             type="text"
             id="email"
             name="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             required
           />
           <label style={FontStyle} htmlFor="message">
@@ -85,6 +99,8 @@ export const ContactForm = observer(({ close }: { close: () => void }) => {
             rows={10}
             id="message"
             name="message"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
             required
           />
           <label style={FontStyle} htmlFor="privacy">
@@ -94,6 +110,7 @@ export const ContactForm = observer(({ close }: { close: () => void }) => {
             type="checkbox"
             id="privacy"
             name="privacy"
+            onChange={(e) => setIsAccept(e.target.checked)}
             required
             style={{ accentColor: store.isDark ? 'white' : 'black' }}
           />
@@ -150,7 +167,7 @@ const SubmitButton = styled.input`
   grid-column: 2;
   margin-left: auto;
   margin-top: 0.5rem;
-  // height: 3em;
+  cursor: pointer;
   font-size: inherit;
   font-family: inherit;
 `;
