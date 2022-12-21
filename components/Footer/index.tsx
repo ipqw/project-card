@@ -19,7 +19,7 @@ export const Footer = observer(() => {
       >
         <FooterContent>
           <DateParagraph>
-            {lang.footerCreatedTime + store.createTime}
+            {lang.footerRights}
           </DateParagraph>
           <ContactUsButton
             type="button"

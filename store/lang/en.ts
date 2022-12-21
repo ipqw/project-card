@@ -5,7 +5,7 @@ export const en: Lingo = {
   navLinkProjects: 'Projects',
   headingOurTeam: 'Our team',
   headingAdresses: 'Adresses',
-  footerCreatedTime: 'Project creation time: ',
+  footerRights: 'Все права защищены © 2022',
   footerContactUs: 'Contact us',
   popupStatusInProgress: 'Sending…',
   popupStatusDone: 'Sent',
