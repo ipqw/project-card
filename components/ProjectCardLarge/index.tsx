@@ -12,7 +12,10 @@ interface IProps {
 
 export const ProjectCardLarge = observer(({ project }: IProps) => {
   const lang = useLang();
-  const date = new Date(project?.createdAt);
+  let date;
+  if (project) {
+    date = new Date(project?.createdAt);
+  }
 
   return (
     <Wrapper
@@ -30,7 +33,7 @@ export const ProjectCardLarge = observer(({ project }: IProps) => {
         <DescText>{project?.description}</DescText>
         <DescText>
           {lang.dateCreated}
-          {date.toLocaleDateString()}
+          {date ? date.toLocaleDateString() : ''}
         </DescText>
         <DescText>
           {lang.projectStack}
