@@ -18,9 +18,7 @@ export const Footer = observer(() => {
         }}
       >
         <FooterContent>
-          <DateParagraph>
-            {lang.footerCreatedTime + store.createTime}
-          </DateParagraph>
+          <DateParagraph>{lang.footerRights}</DateParagraph>
           <ContactUsButton
             type="button"
             onClick={() => setFormState(!formState)}
@@ -29,15 +27,13 @@ export const Footer = observer(() => {
           </ContactUsButton>
         </FooterContent>
       </FooterWrapper>
-      {formState ? (
+      {formState &&
         <ContactForm
           close={() => {
             setFormState(false);
           }}
         />
-      ) : (
-        ''
-      )}
+      }
     </>
   );
 });
