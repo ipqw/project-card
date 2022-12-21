@@ -16,7 +16,7 @@ export const Page = observer((props: IProps) => {
 
   useEffect(() => {
     fetch(
-      'http://130.193.43.180/betterweb/api/v1/getData?' +
+      'https://130.193.43.180/betterweb/api/v1/getData?' +
         new URLSearchParams({
           locale: store.lang,
           datatype: 'members'
@@ -32,7 +32,7 @@ export const Page = observer((props: IProps) => {
       .catch(res => console.error(res));
 
     fetch(
-      'http://130.193.43.180/betterweb/api/v1/getData?' +
+      'https://130.193.43.180/betterweb/api/v1/getData?' +
         new URLSearchParams({
           locale: store.lang,
           datatype: 'projects'
