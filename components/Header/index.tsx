@@ -9,11 +9,45 @@ import { store } from '../../store';
 import { Content } from '../Content';
 import NavLink from '../NavLink';
 
+const closeIcon = (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <line x1="18" y1="6" x2="6" y2="18"></line>
+    <line x1="6" y1="6" x2="18" y2="18"></line>
+  </svg>
+);
+const burgerIcon = (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <line x1="3" y1="12" x2="21" y2="12" />
+    <line x1="3" y1="6" x2="21" y2="6" />
+    <line x1="3" y1="18" x2="21" y2="18" />
+  </svg>
+);
+
 export const Header = observer(() => {
   const lang = useLang();
   const color = store.isDark ? 'white' : 'black';
   const [matchesMobile, setMatchesMobile] = useState(false);
-
+  const [mobileMenuOpened, setMobileMenuOpened] = useState(false);
   useEffect(() => {
     setMatchesMobile(window.matchMedia('(max-width: 580px)').matches);
     window.matchMedia('(max-width: 580px)').addEventListener('change', e => {
@@ -53,7 +87,19 @@ export const Header = observer(() => {
           <Logo style={{ color: color }}>BetterWeb</Logo>
         </Link>
         {matchesMobile ? (
-          <ClickableContent>{clickableContent}</ClickableContent>
+          <>
+            <MenuIcon
+              onClick={() => {
+                setMobileMenuOpened(!mobileMenuOpened);
+                document.body.classList.toggle('no-scroll');
+              }}
+            >
+              {mobileMenuOpened ? closeIcon : burgerIcon}
+            </MenuIcon>
+            <ClickableContent opened={mobileMenuOpened}>
+              {clickableContent}
+            </ClickableContent>
+          </>
         ) : (
           clickableContent
         )}
@@ -71,13 +117,6 @@ const HeaderWrapper = styled.header`
   z-index: 2;
   backdrop-filter: blur(7px);
   background-color: rgba(255, 255, 255, 0.1);
-  @media (max-width: 580px) {
-    height: 120px;
-  }
-
-  @media (max-width: 375px) {
-    height: 150px;
-  }
 `;
 
 const ContentHeader = styled(Content)`
@@ -86,15 +125,17 @@ const ContentHeader = styled(Content)`
   align-items: center;
   justify-content: space-between;
   @media (max-width: 580px) {
-    flex-direction: column;
     padding: 20px;
-    gap: 15px;
   }
 `;
 
 const NavMenu = styled.nav`
   display: flex;
   justify-content: space-between;
+  @media (max-width: 580px) {
+    flex-direction: column;
+    gap: 20px;
+  }
 `;
 
 const Buttons = styled.div`
@@ -141,12 +182,45 @@ const Logo = styled.p`
     margin: 0;
   }
 `;
-const ClickableContent = styled.div`
+
+interface mobileMenuProps {
+  opened: boolean;
+}
+
+const ClickableContent = styled.div<mobileMenuProps>`
   display: flex;
   align-items: center;
+  background-color: rgba(26, 26, 26, 1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: 20px;
+  transform: ${props => (props.opened ? 'none' : 'translateX(-100vw)')};
+  transition: transform 0.3s ea;
   justify-content: center;
-  gap: 10px;
+  flex-direction: column;
+  gap: 20px;
+  will-change: transform, opacity;
+  transition: transform 0.4s cubic-bezier(0, 0, 0.3, 1);
+  z-index: 5;
   @media (max-width: 375px) {
     flex-direction: column;
+  }
+`;
+
+const MenuIcon = styled.div`
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  z-index: 6;
+  & svg {
+    color: #fff;
+    @media (prefers-color-scheme: dark) {
+      color: #fff;
+    }
+    width: 100%;
+    height: 100%;
   }
 `;
