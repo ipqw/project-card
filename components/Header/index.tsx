@@ -27,7 +27,7 @@ export const Header = observer(() => {
         <NavLink href="/projects" name={lang.navLinkProjects} />
       </NavMenu>
       <Buttons>
-        <ThemeButton onClick={store.changeTheme}>
+        <ThemeButton className="clickable" onClick={store.changeTheme}>
           <Image src={sun} alt="" width={18} />
         </ThemeButton>
         <LangsWrapper>

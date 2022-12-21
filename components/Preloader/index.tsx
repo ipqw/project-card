@@ -2,20 +2,20 @@ import { observer } from 'mobx-react';
 import styled from 'styled-components';
 
 type IProps = {
-  isDisplay: boolean
-}
+  isDisplay: boolean;
+};
 
 export const Preloader = observer(({ isDisplay }: IProps) => {
   return (
     <>
-      {isDisplay && <PreloaderWrapper>
-        <div className='spinner'></div>
-      </PreloaderWrapper>
-      }
+      {isDisplay && (
+        <PreloaderWrapper>
+          <div className="spinner"></div>
+        </PreloaderWrapper>
+      )}
     </>
   );
 });
-
 
 const PreloaderWrapper = styled.div`
   position: fixed;
@@ -28,4 +28,4 @@ const PreloaderWrapper = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #983000;
-`
+`;

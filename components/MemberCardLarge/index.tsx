@@ -1,6 +1,6 @@
 import { Content } from 'components/Content';
 import { observer } from 'mobx-react';
-import YandexMap from '../YandexMap'
+import YandexMap from '../YandexMap';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -25,12 +25,25 @@ export const MemberCardLarge = observer((props: IProps) => {
   }
 
   return (
-    <MemberCardWrapper onClick={() => router.push(`/members/${member.id}`)}>
+    <MemberCardWrapper
+      style={{
+        backgroundColor: store.isDark ? 'rgb(18, 18, 18)' : '#f5f5f5',
+        color: store.isDark ? 'white' : 'black'
+      }}
+      onClick={() => router.push(`/members/${member.id}`)}
+    >
+      {' '}
       <MemberMedia>
-        <Image src={defaultAvatar} priority alt="" height={250} style={{ zIndex: 2 }} />
+        <Image
+          src={defaultAvatar}
+          priority
+          alt=""
+          height={250}
+          style={{ zIndex: 2 }}
+        />
         <TitleMap>{lang.meOnMap}</TitleMap>
         <MapWrapper>
-          <YandexMap location={member.location} height='100%'></YandexMap>
+          <YandexMap location={member.location} height="100%"></YandexMap>
         </MapWrapper>
       </MemberMedia>
       <MemberData>
@@ -60,7 +73,8 @@ const Title = styled.span`
 
 const TitleMap = styled(Title)`
   margin-left: 10px;
-`
+  color: black;
+`;
 
 const MemberCardWrapper = styled(Content)`
   height: 500px;
@@ -85,7 +99,7 @@ const MapWrapper = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-`
+`;
 
 const MemberData = styled.div`
   width: 49%;

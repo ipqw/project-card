@@ -1,11 +1,13 @@
 import { Content } from 'components/Content';
 import { observer } from 'mobx-react';
 import { useEffect, useState } from 'react';
+import { useLang } from 'store/lang';
 import styled from 'styled-components';
 import { store } from '../../store';
 import { ProjectCard } from '../ProjectCard';
 
 export const Projects = observer(() => {
+  const lang = useLang();
   useEffect(() => {
     fetch(
       'http://130.193.43.180/betterweb/api/v1/getData?' +
@@ -46,9 +48,17 @@ export const Projects = observer(() => {
           return <ProjectCard project={project} key={i} />;
         })}
       </ProjectsWrapperList>
-      {amount < store.projects.length &&
-        <ShowMoreButton onClick={() => setAmount(amount + 3)}>показать еще</ShowMoreButton>
-      }
+      {amount < store.projects.length && (
+        <ShowMoreButton
+          style={{
+            backgroundColor: store.isDark ? '#363636' : '#ededed',
+            color: store.isDark ? '#ffffff' : 'black'
+          }}
+          onClick={() => setAmount(amount + 3)}
+        >
+          {lang.showMore}
+        </ShowMoreButton>
+      )}
     </ProjectsWrapper>
   );
 });
@@ -76,7 +86,7 @@ const ProjectsWrapperList = styled.div`
   @media (max-width: 375px) {
     margin-top: calc(150px + var(--spacing));
   }
-`
+`;
 
 const ShowMoreButton = styled.button`
   width: 150px;

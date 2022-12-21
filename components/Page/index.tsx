@@ -26,10 +26,10 @@ export const Page = observer((props: IProps) => {
       .then(data => {
         store.setMembers(data.data);
         setTimeout(() => {
-          setIsDisplay(false)
-        }, 1500)
+          setIsDisplay(false);
+        }, 1500);
       })
-      .catch(res => console.error(res))
+      .catch(res => console.error(res));
 
     fetch(
       'http://130.193.43.180/betterweb/api/v1/getData?' +
@@ -42,11 +42,11 @@ export const Page = observer((props: IProps) => {
       .then(data => {
         store.setProjects(data.data);
         setTimeout(() => {
-          setIsDisplay(false)
-        }, 1500)
+          setIsDisplay(false);
+        }, 1500);
       })
       .catch(res => console.error(res));
-  })
+  }, [store.lang]);
 
   return (
     <PageWrapper style={{ backgroundColor: store.isDark ? 'black' : 'white' }}>
