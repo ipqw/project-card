@@ -6,6 +6,10 @@ import { store } from '../../store';
 
 const LinkStyled = styled.a<{ active?: boolean }>`
   text-decoration: ${props => (props.active ? 'underline' : 'none')};
+  @media (max-width: 580px) {
+    font-size: 1.5rem;
+    text-align: center;
+  }
 `;
 
 const NavLink = observer((props: { href: string; name: string }) => {
