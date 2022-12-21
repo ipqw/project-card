@@ -21,5 +21,6 @@ export const en: Lingo = {
   notMemberError: 'There is not member with same id!',
   meOnMap: 'Me on map',
   myContacts: 'My contacts',
-  myStack: 'My stack'
+  myStack: 'My stack',
+  showMore: 'Show more...'
 };

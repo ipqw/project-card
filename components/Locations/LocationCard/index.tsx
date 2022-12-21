@@ -16,14 +16,14 @@ export const LocationCard = observer(({ location, name }: IProps) => {
       <TextContent>
         <p>{name}</p>
       </TextContent>
-      <YandexMap height='200px' location={location} />
+      <YandexMap height="200px" location={location} />
     </Card>
   );
 });
 
 const Card = styled.div`
   border-radius: 10px;
-  cursor: pointer;
+  cursor: default;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.2);
   flex-basis: calc(33.3% - 10px);

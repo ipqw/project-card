@@ -1,8 +1,8 @@
 import { Map, Placemark } from '@pbe/react-yandex-maps';
 
 interface IProps {
-  location: [number, number],
-  height: string
+  location: [number, number];
+  height: string;
 }
 
 export default function YandexMap({ location, height }: IProps) {

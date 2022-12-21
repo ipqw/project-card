@@ -19,7 +19,8 @@ export const ru = {
   notMemberError: 'Разработчика с таким id нет!',
   meOnMap: 'Я на карте',
   myContacts: 'Мои контакты',
-  myStack: 'Мой стек'
+  myStack: 'Мой стек',
+  showMore: 'Показать еще...'
 };
 
 export type Lingo = typeof ru;

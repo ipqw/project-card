@@ -1,21 +1,19 @@
 import { MemberCardLarge } from 'components/MemberCardLarge';
+import { toJS } from 'mobx';
+import { observer } from 'mobx-react';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { store } from 'store';
-import { useLang } from 'store/lang';
-import { IMember } from 'types';
 import { Page } from '../../components/Page';
 
-export default function MemberPage() {
+const MemberPage = observer(() => {
   const router = useRouter();
-  const lang = useLang();
-  const memberId = parseInt(router.query.memberId as string);
-  const [member, setMember] = useState<undefined | IMember>(undefined);
+  const id = parseInt(router.query.memberId as string);
+  const members = toJS(store.members);
+
+  const member = members.find(elem => elem.id == id);
 
   useEffect(() => {
-    if (!memberId) {
-      return;
-    }
     fetch(
       'http://130.193.43.180/betterweb/api/v1/getData?' +
         new URLSearchParams({
@@ -26,14 +24,15 @@ export default function MemberPage() {
       .then(res => res.json())
       .then(data => {
         store.setMembers(data.data);
-        setMember(store.getMemberById(memberId));
       })
       .catch(res => console.error(res));
-  }, [store.lang, memberId]);
+  }, [store.lang]);
 
   return (
     <Page>
       <MemberCardLarge member={member} />
     </Page>
   );
-}
+});
+
+export default MemberPage;

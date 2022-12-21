@@ -25,7 +25,10 @@ export const MemberCard = observer((props: IProps) => {
   }
 
   return (
-    <MemberCardWrapper onClick={() => router.push(`/members/${member.id}`)}>
+    <MemberCardWrapper
+      className="clickable"
+      onClick={() => router.push(`/members/${member.id}`)}
+    >
       <Image src={defaultAvatar} priority alt="" width={280} height={225} />
       <MemberData style={{ color: color }}>
         <MemberName>
@@ -56,7 +59,7 @@ export const MemberCard = observer((props: IProps) => {
 });
 
 const MemberCardWrapper = styled.div`
-  height: 480px;
+  min-height: 480px;
   min-width: 280px;
   width: 280px;
   border-radius: 10px 10px 0 0;
@@ -68,7 +71,6 @@ const MemberCardWrapper = styled.div`
 const MemberData = styled.div`
   display: flex;
   flex-direction: column;
-  height: calc(480px - 225px);
 `;
 
 const MemberName = styled.div`
@@ -86,11 +88,11 @@ const MemberName = styled.div`
   }
 `;
 
-const MemberDesc = styled.span`
+const MemberDesc = styled.p`
   margin-top: 0.5em;
 `;
 
-const MemberStack = styled.span`
+const MemberStack = styled.p`
   margin-top: auto;
   margin-bottom: 0.5em;
   color: #888;
