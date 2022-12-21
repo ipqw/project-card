@@ -44,7 +44,7 @@ const ProjectPage = observer(() => {
 
   return (
     <Page>
-      <ProjectCardLarge project={project} />z
+      <ProjectCardLarge project={project} />
     </Page>
   );
 });
