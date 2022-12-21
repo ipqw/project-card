@@ -152,6 +152,10 @@ const TextAreaStyled = styled.textarea`
   outline: none;
 `;
 
+const CheckboxWrapper = styled.div`
+  max-width: 30%;
+` 
+
 const CheckBoxStyled = styled(InputStyled)`
   width: 1.5em;
   height: 100%;

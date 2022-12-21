@@ -12,7 +12,7 @@ export const ru = {
   popupHeading: 'Написать нам',
   popupName: 'Имя: ',
   popupMessage: 'Сообщение: ',
-  popupConditions: 'Я принял(а) условия: ',
+  popupConditions: 'Я согласен(а) на обработку персональных данных',
   projectDescription: 'Описание: ',
   dateCreated: 'Дата создания: ',
   projectStack: 'Технологии проекта: ',
