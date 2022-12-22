@@ -25,11 +25,11 @@ export const ProjectCardLarge = observer(({ project }: IProps) => {
       }}
     >
       <div>
-        <h1>{project?.name}</h1>
+        <ProjectName>{project?.name}</ProjectName>
         <Image src={project?.image || image.src} />
       </div>
       <Desc>
-        <h2>{lang.projectDescription}</h2>
+        <DescH2>{lang.projectDescription}</DescH2>
         <DescText>{project?.description}</DescText>
         <DescText>
           {lang.dateCreated}
@@ -53,12 +53,25 @@ const Wrapper = styled(Content)`
   border-radius: 15px;
 `;
 const Image = styled.img`
-  width: 500px;
+  padding: 0;
+  width: 90%;
+  display: block;
+  margin: 0 auto;
+  @media screen and (min-width: 1040px) {
+    width: 500px;
+  }
 `;
 const Desc = styled.div`
   width: 500px;
 `;
 const DescText = styled.p`
   margin-top: 20px;
-  font-size: 18px;
+  font-size: calc(8px + 1vw);
+`;
+const ProjectName = styled.h1`
+  font-size: calc(16px + 1.5vw);
+  text-align: center;
+`;
+const DescH2 = styled.h2`
+  font-size: calc(12px + 1.5vw);
 `;
