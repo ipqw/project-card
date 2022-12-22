@@ -41,10 +41,9 @@ const ProjectPage = observer(() => {
       })
       .catch(res => console.error(res));
   }, [store.lang]);
-
   return (
     <Page>
-      <ProjectCardLarge project={project} />z
+      <ProjectCardLarge project={project} />
     </Page>
   );
 });

@@ -26,7 +26,7 @@ export const ProjectCardLarge = observer(({ project }: IProps) => {
     >
       <div>
         <h1>{project?.name}</h1>
-        <Image src={image.src} />
+        <Image src={project?.image || image.src} />
       </div>
       <Desc>
         <h2>{lang.projectDescription}</h2>

@@ -27,13 +27,13 @@ export const Footer = observer(() => {
           </ContactUsButton>
         </FooterContent>
       </FooterWrapper>
-      {formState &&
+      {formState && (
         <ContactForm
           close={() => {
             setFormState(false);
           }}
         />
-      }
+      )}
     </>
   );
 });

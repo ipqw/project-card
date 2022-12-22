@@ -3,7 +3,7 @@ export const ru = {
   navLinkProjects: 'Проекты',
   headingOurTeam: 'Наша команда',
   headingAdresses: 'Адреса',
-  footerRights: 'All rights reserved © 2022',
+  footerRights: 'Все права защищены © 2022',
   footerContactUs: 'Написать нам',
   popupStatusInProgress: 'Отправляем…',
   popupStatusDone: 'Отправлено',

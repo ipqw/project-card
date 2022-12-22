@@ -1,7 +1,6 @@
 import { Content } from 'components/Content';
 import { observer } from 'mobx-react';
 import YandexMap from '../YandexMap';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useLang } from 'store/lang';
@@ -35,9 +34,9 @@ export const MemberCardLarge = observer((props: IProps) => {
       {' '}
       <MemberMedia>
         <Image
-          src={defaultAvatar}
-          priority
+          src={member.image || defaultAvatar.src}
           alt=""
+          width={250}
           height={250}
           style={{ zIndex: 2 }}
         />
@@ -132,4 +131,10 @@ const MemberStack = styled.span`
   margin-top: auto;
   margin-bottom: 0.5em;
   color: #888;
+`;
+const Image = styled.img`
+  width: 100%;
+  max-height: 200px;
+  margin: 0;
+  object-fit: cover;
 `;
