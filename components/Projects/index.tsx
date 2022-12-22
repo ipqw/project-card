@@ -1,5 +1,4 @@
 import { Content } from 'components/Content';
-import { toJS } from 'mobx';
 import { observer } from 'mobx-react';
 import { useEffect, useState } from 'react';
 import { useLang } from 'store/lang';
@@ -12,7 +11,7 @@ export const Projects = observer(() => {
   const lang = useLang();
   let categories = store.getProjectCategories();
   const [amount, setAmount] = useState(3);
-  const [stack, setStack] = useState(0);
+  const [stack, setStack] = useState(-1);
   const [displayedProjects, setDisplayedProjects] = useState(Array<IProject>);
 
   useEffect(() => {
@@ -42,11 +41,7 @@ export const Projects = observer(() => {
       .then(data => {
         store.setProjects(data.data);
         categories = store.getProjectCategories();
-        setDisplayedProjects(
-          store.projects.filter(project => 
-            JSON.stringify(toJS(project.stack)) == JSON.stringify(categories[0])
-          )
-        )
+        setDisplayedProjects(store.projects.slice(0, amount));
       })
       .catch(res => console.error(res));
   }, [store.lang]);
@@ -62,7 +57,7 @@ export const Projects = observer(() => {
               setStack(-1);
               setDisplayedProjects(store.projects.slice(0, amount));
             }} />
-          <span style={{color: store.isDark ? '#ffffff' : 'black'}}>Все категории</span>
+          <span style={{color: store.isDark ? '#ffffff' : 'black'}}>{lang.allCategories}</span>
         </RadioButton>
         {categories.map((category, i) => {
           return (
@@ -91,7 +86,7 @@ export const Projects = observer(() => {
       (
         (amount < store.projects.filter(project => 
         JSON.stringify(project.stack) === JSON.stringify(categories[stack])).length) || 
-        (stack == -1 && amount < store.projects.length)
+        (stack == -1 && amount-3 < store.projects.length)
       ) && (
         <ShowMoreButton
           style={{

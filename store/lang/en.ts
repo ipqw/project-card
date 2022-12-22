@@ -22,5 +22,6 @@ export const en: Lingo = {
   meOnMap: 'Me on map',
   myContacts: 'My contacts',
   myStack: 'My stack',
-  showMore: 'Show more...'
+  showMore: 'Show more...',
+  allCategories: 'Any stack'
 };
