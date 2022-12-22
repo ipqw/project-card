@@ -61,8 +61,8 @@ export const Projects = observer(() => {
         </RadioButton>
         {categories.map((category, i) => {
           return (
-            <RadioButton>
-              <input type="radio" name="radio" key={i}
+            <RadioButton key={i}>
+              <input type="radio" name="radio" 
                 value={category.join(', ')}
                 checked={i === stack}
                 onChange={() => {
