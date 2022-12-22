@@ -51,6 +51,7 @@ export const Projects = observer(() => {
       {amount < store.projects.length && (
         <ShowMoreButton
           style={{
+            margin: '0 auto',
             backgroundColor: store.isDark ? '#363636' : '#ededed',
             color: store.isDark ? '#ffffff' : 'black'
           }}
