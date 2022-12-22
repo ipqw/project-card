@@ -1,6 +1,5 @@
 import { makeAutoObservable, toJS } from 'mobx';
 import { IMember, IProject } from 'types';
-import { projectCreatedAt } from '../mock/mock';
 
 class Storage {
   constructor() {
@@ -21,7 +20,6 @@ class Storage {
 
   members: Array<IMember> = [];
   projects: Array<IProject> = [];
-  createTime = projectCreatedAt;
 
   setMembers = (a: any) => {
     this.members = a;
