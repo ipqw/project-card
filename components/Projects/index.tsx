@@ -3,11 +3,17 @@ import { observer } from 'mobx-react';
 import { useEffect, useState } from 'react';
 import { useLang } from 'store/lang';
 import styled from 'styled-components';
+import { IProject } from 'types';
 import { store } from '../../store';
 import { ProjectCard } from '../ProjectCard';
 
 export const Projects = observer(() => {
   const lang = useLang();
+  let categories = store.getProjectCategories();
+  const [amount, setAmount] = useState(3);
+  const [stack, setStack] = useState(-1);
+  const [displayedProjects, setDisplayedProjects] = useState(Array<IProject>);
+
   useEffect(() => {
     fetch(
       'https://api.stvorka34.ru/betterweb/api/v1/getData?' +
@@ -34,27 +40,64 @@ export const Projects = observer(() => {
       .then(res => res.json())
       .then(data => {
         store.setProjects(data.data);
+        categories = store.getProjectCategories();
+        setDisplayedProjects(store.projects.slice(0, amount));
       })
       .catch(res => console.error(res));
   }, [store.lang]);
 
-  const [amount, setAmount] = useState(3);
-  let displayedProjects = store.projects.slice(0, amount);
-
   return (
     <ProjectsWrapper>
+      <RadioButtons>
+        <RadioButton>
+          <input type="radio" name="radio"
+            value='all'
+            checked={stack === -1}
+            onChange={() => {
+              setStack(-1);
+              setDisplayedProjects(store.projects.slice(0, amount));
+            }} />
+          <span style={{color: store.isDark ? '#ffffff' : 'black'}}>{lang.allCategories}</span>
+        </RadioButton>
+        {categories.map((category, i) => {
+          return (
+            <RadioButton>
+              <input type="radio" name="radio" key={i}
+                value={category.join(', ')}
+                checked={i === stack}
+                onChange={() => {
+                  setStack(i);
+                  setDisplayedProjects(
+                    store.projects.filter(project => 
+                      JSON.stringify(project.stack) === JSON.stringify(categories[i])
+                    ));
+                }} />
+              <span style={{color: store.isDark ? '#ffffff' : 'black'}}>{category.join(', ')}</span>
+            </RadioButton>
+          )
+        })}
+      </RadioButtons>
       <ProjectsWrapperList>
         {displayedProjects.map((project, i) => {
           return <ProjectCard project={project} key={i} />;
         })}
       </ProjectsWrapperList>
-      {amount < store.projects.length && (
+      {
+      (
+        (amount < store.projects.filter(project => 
+        JSON.stringify(project.stack) === JSON.stringify(categories[stack])).length) || 
+        (stack == -1 && amount-3 < store.projects.length)
+      ) && (
         <ShowMoreButton
           style={{
+            margin: '0 auto',
             backgroundColor: store.isDark ? '#363636' : '#ededed',
             color: store.isDark ? '#ffffff' : 'black'
           }}
-          onClick={() => setAmount(amount + 3)}
+          onClick={() => {
+            setAmount(amount + 3);
+            setDisplayedProjects(store.projects.slice(0, amount));
+          }}
         >
           {lang.showMore}
         </ShowMoreButton>
@@ -63,7 +106,28 @@ export const Projects = observer(() => {
   );
 });
 
-const ProjectsWrapper = styled(Content)``;
+const ProjectsWrapper = styled(Content)`
+  --spacing: 20px;
+  margin-top: calc(100px + var(--spacing));
+  @media (max-width: 580px) {
+    margin-top: calc(120px + var(--spacing));
+  }
+
+  @media (max-width: 375px) {
+    margin-top: calc(150px + var(--spacing));
+  }
+`;
+
+const RadioButtons = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 50px;
+`
+
+const RadioButton = styled.div`
+  display: flex;
+`
 
 const ProjectsWrapperList = styled.div`
   display: grid;
@@ -77,15 +141,6 @@ const ProjectsWrapperList = styled.div`
   grid-auto-rows: 1fr;
   grid-column-gap: 20px;
   grid-row-gap: 20px;
-  --spacing: 20px;
-  margin-top: calc(100px + var(--spacing));
-  @media (max-width: 580px) {
-    margin-top: calc(120px + var(--spacing));
-  }
-
-  @media (max-width: 375px) {
-    margin-top: calc(150px + var(--spacing));
-  }
 `;
 
 const ShowMoreButton = styled.button`

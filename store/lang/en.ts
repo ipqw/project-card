@@ -5,7 +5,7 @@ export const en: Lingo = {
   navLinkProjects: 'Projects',
   headingOurTeam: 'Our team',
   headingAdresses: 'Adresses',
-  footerCreatedTime: 'Project creation time: ',
+  footerRights: 'All rights reserved © 2022',
   footerContactUs: 'Contact us',
   popupStatusInProgress: 'Sending…',
   popupStatusDone: 'Sent',
@@ -14,7 +14,7 @@ export const en: Lingo = {
   popupHeading: 'Contact us',
   popupName: 'Name: ',
   popupMessage: 'Message: ',
-  popupConditions: 'I accept the conditions: ',
+  popupConditions: 'I agree to the processing of personal data',
   projectDescription: 'Description: ',
   dateCreated: 'Date of creation: ',
   projectStack: 'Project stack: ',
@@ -22,5 +22,6 @@ export const en: Lingo = {
   meOnMap: 'Me on map',
   myContacts: 'My contacts',
   myStack: 'My stack',
-  showMore: 'Show more...'
+  showMore: 'Show more...',
+  allCategories: 'Any stack'
 };

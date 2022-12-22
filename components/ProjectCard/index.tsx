@@ -17,7 +17,7 @@ export const ProjectCard = observer(({ project }: IProps) => {
 
   return (
     <ProjectWrapper style={{ backgroundColor: backColor }}>
-      <Image src={image.src} alt="project image" />
+      <Image src={project.image || image.src} alt="project image" />
       <ProjectDiv>
         <ProjectDate>
           {new Date(project.createdAt).toLocaleDateString()}

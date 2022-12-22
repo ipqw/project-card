@@ -7,6 +7,7 @@ export interface IMember {
   telegram: string;
   location: [number, number];
   stack: string[];
+  image: string;
 }
 
 export interface IProject {
@@ -16,4 +17,5 @@ export interface IProject {
   stack: string[];
   description: string;
   createdAt: Date;
+  image: string;
 }

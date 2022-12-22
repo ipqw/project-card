@@ -39,6 +39,15 @@ class Storage {
     this.projects = a;
   };
 
+  getProjectCategories = () => {
+    let categories = new Array<Array<string>>;
+    this.projects.forEach(project => {
+      categories.push(toJS(project.stack))
+    });
+    //@ts-ignore
+    return [...new Set(categories.map(category => JSON.stringify(category)))].map(s => JSON.parse(s));
+  }
+
   isDark = true;
   changeTheme = () => {
     this.isDark = !this.isDark;

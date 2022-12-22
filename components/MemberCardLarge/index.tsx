@@ -1,7 +1,6 @@
 import { Content } from 'components/Content';
 import { observer } from 'mobx-react';
 import YandexMap from '../YandexMap';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useLang } from 'store/lang';
@@ -34,13 +33,7 @@ export const MemberCardLarge = observer((props: IProps) => {
     >
       {' '}
       <MemberMedia>
-        <Image
-          src={defaultAvatar}
-          priority
-          alt=""
-          height={250}
-          style={{ zIndex: 2 }}
-        />
+        <Image src={member.image || defaultAvatar.src} alt="" />
         <TitleMap>{lang.meOnMap}</TitleMap>
         <MapWrapper>
           <YandexMap location={member.location} height="100%"></YandexMap>
@@ -66,31 +59,48 @@ export const MemberCardLarge = observer((props: IProps) => {
 });
 
 const Title = styled.span`
-  font-size: 2em;
+  font-size: calc(1.5em + 1vw);
   font-weight: 700;
-  z-index: 2;
+  z-index: 1;
 `;
 
 const TitleMap = styled(Title)`
-  margin-left: 10px;
+  padding-left: 10px;
   color: black;
+  background-color: white;
+  font-size: calc(20px + 0.5vw);
+  width: 270px;
+  @media screen and (min-width: 1380px) {
+    width: 250px;
+  }
 `;
 
 const MemberCardWrapper = styled(Content)`
-  height: 500px;
   display: flex;
   justify-content: space-between;
   border-radius: 10px;
   background-color: #f5f5f5;
   overflow: hidden;
+  flex-direction: column;
   color: 'black';
+  margin-top: 120px;
+  padding: 0;
+  @media screen and (min-width: 1380px) {
+    flex-direction: row;
+    height: 500px;
+    width: 95%;
+    margin: 0;
+  }
 `;
 
 const MemberMedia = styled.div`
   position: relative;
-  width: 49%;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  @media screen and (min-width: 1380px) {
+    width: 49%;
+  }
 `;
 
 const MapWrapper = styled.div`
@@ -102,34 +112,55 @@ const MapWrapper = styled.div`
 `;
 
 const MemberData = styled.div`
-  width: 49%;
+  width: 95%;
   height: 100%;
   padding: 1em 0;
   gap: 1em;
   display: flex;
   flex-direction: column;
+  margin-left: 15px;
+  @media screen and (min-width: 1380px) {
+    width: 49%;
+  }
 `;
 
-const MemberName = styled.span`
+const MemberName = styled.p`
   font-size: 3em;
   font-weight: 700;
+  margin: 0;
 `;
 
-const MemberDesc = styled.span`
+const MemberDesc = styled.p`
+  font-size: calc(12px + 0.5vw);
   margin-top: 0.5em;
+  margin: 0;
 `;
 
 const MemberContacts = styled.div`
   display: flex;
   flex-direction: column;
+  margin: 0;
+  font-size: calc(12px + 0.5vw);
 `;
 
 const MemberStackWrapper = styled.div``;
 
-const MemberStack = styled.span`
+const MemberStack = styled.p`
   display: flex;
+  font-size: calc(12px + 0.5vw);
   flex-direction: column;
   margin-top: auto;
   margin-bottom: 0.5em;
   color: #888;
+`;
+const Image = styled.img`
+  margin: 0;
+  z-index: 1;
+  object-fit: cover;
+  width: 150px;
+  height: 150px;
+  @media screen and (min-width: 1380px) {
+    width: 250px;
+    height: 250px;
+  }
 `;

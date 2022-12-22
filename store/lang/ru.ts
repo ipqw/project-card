@@ -3,7 +3,7 @@ export const ru = {
   navLinkProjects: 'Проекты',
   headingOurTeam: 'Наша команда',
   headingAdresses: 'Адреса',
-  footerCreatedTime: 'Время создания проекта: ',
+  footerRights: 'Все права защищены © 2022',
   footerContactUs: 'Написать нам',
   popupStatusInProgress: 'Отправляем…',
   popupStatusDone: 'Отправлено',
@@ -12,7 +12,7 @@ export const ru = {
   popupHeading: 'Написать нам',
   popupName: 'Имя: ',
   popupMessage: 'Сообщение: ',
-  popupConditions: 'Я принял(а) условия: ',
+  popupConditions: 'Я согласен(а) на обработку персональных данных',
   projectDescription: 'Описание: ',
   dateCreated: 'Дата создания: ',
   projectStack: 'Технологии проекта: ',
@@ -20,7 +20,8 @@ export const ru = {
   meOnMap: 'Я на карте',
   myContacts: 'Мои контакты',
   myStack: 'Мой стек',
-  showMore: 'Показать еще...'
+  showMore: 'Показать еще...',
+  allCategories: 'Любой стек'
 };
 
 export type Lingo = typeof ru;
