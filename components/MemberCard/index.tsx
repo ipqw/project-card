@@ -1,5 +1,4 @@
 import { observer } from 'mobx-react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useLang } from 'store/lang';
@@ -29,14 +28,19 @@ export const MemberCard = observer((props: IProps) => {
       className="clickable"
       onClick={() => router.push(`/members/${member.id}`)}
     >
-      <Image src={defaultAvatar} priority alt="" width={280} height={225} />
+      <Image
+        src={member?.image || defaultAvatar.src}
+        alt=""
+        width={280}
+        height={225}
+      />
       <MemberData style={{ color: color }}>
         <MemberName>
           <p>{member.name}</p>
           <Link href={member.github}>
             <Image
               style={{ backgroundColor: 'white', borderRadius: '100%' }}
-              src={gh}
+              src={gh.src}
               alt=""
               width={18}
             />
@@ -45,7 +49,7 @@ export const MemberCard = observer((props: IProps) => {
           <Link href={'https://t.me/' + member.telegram.slice(1)}>
             <Image
               style={{ backgroundColor: 'white', borderRadius: '100%' }}
-              src={tg}
+              src={tg.src}
               alt=""
               width={18}
             />
@@ -96,4 +100,10 @@ const MemberStack = styled.p`
   margin-top: auto;
   margin-bottom: 0.5em;
   color: #888;
+`;
+const Image = styled.img`
+  width: 100%;
+  max-height: 200px;
+  margin: 0;
+  object-fit: cover;
 `;

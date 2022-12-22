@@ -1,5 +1,4 @@
 import { observer } from 'mobx-react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useLang } from 'store/lang';
 import styled from 'styled-components';
@@ -62,7 +61,7 @@ export const Header = observer(() => {
       </NavMenu>
       <Buttons>
         <ThemeButton className="clickable" onClick={store.changeTheme}>
-          <Image src={sun} alt="" width={18} />
+          <Image src={sun.src} alt="" width={18} />
         </ThemeButton>
         <LangsWrapper>
           <Langs
@@ -222,5 +221,13 @@ const MenuIcon = styled.div`
     }
     width: 100%;
     height: 100%;
+  }
+`;
+const Image = styled.img`
+  margin: 0;
+  object-fit: cover;
+  color: #fff;
+  @media (prefers-color-scheme: dark) {
+    color: #fff;
   }
 `;
