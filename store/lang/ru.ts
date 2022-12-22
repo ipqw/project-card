@@ -20,7 +20,8 @@ export const ru = {
   meOnMap: 'Я на карте',
   myContacts: 'Мои контакты',
   myStack: 'Мой стек',
-  showMore: 'Показать еще...'
+  showMore: 'Показать еще...',
+  allCategories: 'Любой стек'
 };
 
 export type Lingo = typeof ru;
