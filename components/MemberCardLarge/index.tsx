@@ -84,12 +84,9 @@ const MemberCardWrapper = styled(Content)`
   flex-direction: column;
   color: 'black';
   margin-top: 120px;
-  padding: 0;
   @media screen and (min-width: 1380px) {
     flex-direction: row;
     height: 500px;
-    width: 95%;
-    margin: 0;
   }
 `;
 
