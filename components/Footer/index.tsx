@@ -57,6 +57,7 @@ const DateParagraph = styled.p`
 `;
 
 const FooterContent = styled(Content)`
+  width: 100vw;
   display: flex;
   align-items: center;
   gap: 15px;
