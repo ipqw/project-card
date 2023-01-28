@@ -14,7 +14,7 @@ const ProjectPage = observer(() => {
 
   useEffect(() => {
     fetch(
-      'https://api.stvorka34.ru/betterweb/api/v1/getData?' +
+      'http://185.195.24.28/betterweb/api/v1/getData?' +
         new URLSearchParams({
           locale: store.lang,
           datatype: 'members'
@@ -29,7 +29,7 @@ const ProjectPage = observer(() => {
 
   useEffect(() => {
     fetch(
-      'https://api.stvorka34.ru/betterweb/api/v1/getData?' +
+      'http://185.195.24.28/betterweb/api/v1/getData?' +
         new URLSearchParams({
           locale: store.lang,
           datatype: 'projects'

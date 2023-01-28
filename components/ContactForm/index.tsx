@@ -24,7 +24,7 @@ export const ContactForm = observer(({ close }: { close: () => void }) => {
       privacy: isAccept
     };
 
-    fetch('https://api.stvorka34.ru/betterweb/api/v1/write-us', {
+    fetch('https://betterweb.akmit.ru/betterweb/api/v1/write-us', {
       method: 'POST',
       body: new URLSearchParams(data as any)
     })
@@ -80,7 +80,7 @@ export const ContactForm = observer(({ close }: { close: () => void }) => {
             onChange={e => setEmail(e.target.value)}
             required
           />
-          <label style={FontStyle} htmlFor="message">
+          <label style={{...FontStyle, width: 'min-content'}} htmlFor="message">
             {lang.popupMessage}
           </label>
           <TextAreaStyled
