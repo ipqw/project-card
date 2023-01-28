@@ -16,7 +16,7 @@ export const Projects = observer(() => {
 
   useEffect(() => {
     fetch(
-      'http://185.195.24.28/betterweb/api/v1/getData?' +
+      'https://betterweb.akmit.ru/betterweb/api/v1/getData?' +
         new URLSearchParams({
           locale: store.lang,
           datatype: 'members'
@@ -31,7 +31,7 @@ export const Projects = observer(() => {
 
   useEffect(() => {
     fetch(
-      'http://185.195.24.28/betterweb/api/v1/getData?' +
+      'https://betterweb.akmit.ru/betterweb/api/v1/getData?' +
         new URLSearchParams({
           locale: store.lang,
           datatype: 'projects'
